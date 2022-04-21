@@ -1,5 +1,5 @@
 # File for Pull Request on main branch
-name: PR on main
+name: CI
 
 # When a PR is opened to main
 on:
@@ -53,6 +53,4 @@ jobs:
 
       #6 - Run Tests
       - name: Run Tests
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        run: ./.github/scripts/run-testing.sh False True $CODECOV_TOKEN
+        run: ./.github/scripts/run-testing.sh False
