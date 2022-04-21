@@ -27,6 +27,13 @@
         "jestConfig": "libs/nestjs-prisma/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npm publish --tag=latest --access public"
+      }
     }
   },
   "tags": []
