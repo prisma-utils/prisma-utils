@@ -1,0 +1,33 @@
+{
+  "root": "libs/nestjs-prisma",
+  "sourceRoot": "libs/nestjs-prisma/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/nestjs-prisma",
+        "tsConfig": "libs/nestjs-prisma/tsconfig.lib.json",
+        "packageJson": "libs/nestjs-prisma/package.json",
+        "main": "libs/nestjs-prisma/src/index.ts",
+        "assets": ["libs/nestjs-prisma/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/nestjs-prisma/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/nestjs-prisma"],
+      "options": {
+        "jestConfig": "libs/nestjs-prisma/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

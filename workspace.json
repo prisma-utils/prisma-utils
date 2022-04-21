@@ -1,4 +1,6 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "nestjs-prisma": "libs/nestjs-prisma"
+  }
 }
