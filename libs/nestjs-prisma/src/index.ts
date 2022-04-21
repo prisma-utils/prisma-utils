@@ -1,2 +1,2 @@
-export * from './lib/nestjs-prisma.service';
-export * from './lib/nestjs-prisma.module';
+export * from './lib/prisma.service';
+export * from './lib/prisma.module';
