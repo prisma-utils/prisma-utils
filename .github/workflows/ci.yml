@@ -1,30 +1,58 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# File for Pull Request on main branch
+name: PR on main
 
-name: CI
-
+# When a PR is opened to main
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: ['*']
+    branches:
+      - main
+    types: [opened, reopened, synchronize]
 
 jobs:
-  Test:
+  build:
+    # Setup OS and Node Version
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
+        # Node versions
         node-version: [14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
+    # Pipeline Steps
     steps:
-      - uses: actions/checkout@v3
+      #1 - Checkout code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      #2 - Make sure we have all branches
+      - name: Fetch other branches
+        run: git fetch --no-tags --prune --depth=5 origin main
+
+      #3 - Run initial node setup
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
-      - run: npm ci
-      - run: npx nx affected:build
-      - run: npx nx affected:test
+
+      #4 - Clean up folders and run a new install
+      - name: Install Dependencies
+        run: |
+          rm -rf node_modules && rm -rf dist && rm -rf docs && rm -rf coverage
+          npm ci
+
+      #5 - Run Linting
+      - name: Run Lint
+        run: ./.github/scripts/run-linting.sh False
+
+      #6 - Run Tests
+      - name: Run Tests
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: ./.github/scripts/run-testing.sh False True $CODECOV_TOKEN
