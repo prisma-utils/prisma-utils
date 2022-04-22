@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "api": "apps/api",
     "nestjs-prisma": "libs/nestjs-prisma"
   }
 }
