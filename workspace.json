@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
-    "nestjs-prisma": "libs/nestjs-prisma"
+    "nestjs-prisma": "libs/nestjs-prisma",
+    "prismerge": "libs/prismerge"
   }
 }

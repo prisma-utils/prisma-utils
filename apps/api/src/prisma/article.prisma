@@ -1,0 +1,10 @@
+model Article {
+  id    Int    @id @default(autoincrement())
+  title String
+  text  String
+
+  author User @relation(fields: [authorId], references: [id])
+  authorId Int
+
+  @@map("articles")
+}

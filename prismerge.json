@@ -1,0 +1,8 @@
+{
+  "input": [
+    "./apps/api/src/prisma/base.prisma",
+    "./apps/api/src/prisma/user.prisma",
+    "./apps/api/src/prisma/article.prisma"
+  ],
+  "output": "./prisma/schema.prisma"
+}

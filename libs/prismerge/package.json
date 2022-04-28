@@ -1,0 +1,8 @@
+{
+  "name": "@prisma-utils/prismerge",
+  "version": "0.0.1",
+  "main": "./lib/prismerge.js",
+  "bin": {
+    "prismerge": "./lib/prismerge.js"
+  }
+}
