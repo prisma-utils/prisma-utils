@@ -5,9 +5,12 @@ import { PrismaService } from '@prisma-utils/nestjs-prisma';
 export class AppService {
   constructor(private prismaService: PrismaService) {}
 
-  async getData() {
-    const amount = await this.prismaService.article.count();
+  getData() {
+    return { message: `Welcome to api!` };
+  }
 
-    return { message: `Found ${amount} Articles.` };
+  async getCount() {
+    const count = this.prismaService.article.count();
+    return count;
   }
 }
