@@ -52,7 +52,6 @@ jobs:
         with:
           targets: build
           parallel: 'true'
-          nxCloud: 'true'
           affected: 'false'
 
       - name: Upload build artifacts
@@ -70,8 +69,6 @@ jobs:
     name: Lint
     needs: [npm]
     runs-on: ubuntu-latest
-    env:
-      NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -99,7 +96,6 @@ jobs:
         with:
           targets: lint
           parallel: 'true'
-          nxCloud: 'true'
           affected: 'false'
 
   test:
@@ -131,5 +127,4 @@ jobs:
           targets: test
           parallel: 'true'
           maxParallel: '3'
-          nxCloud: 'true'
           affected: 'false'
