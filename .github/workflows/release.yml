@@ -28,13 +28,13 @@ jobs:
       - name: Build release scripts
         uses: mansagroup/nrwl-nx-action@v2
         with:
-          targets: build
+          targets: build:all
           projects: builders
 
       - name: Release
         uses: mansagroup/nrwl-nx-action@v2.1.0
         with:
-          targets: release
+          targets: release:all
           affected: 'false'
         env:
           CI: true

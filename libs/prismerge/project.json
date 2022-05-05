@@ -28,6 +28,14 @@
         "main": "libs/prismerge/src/index.ts",
         "assets": ["libs/prismerge/*.md"]
       }
+    },
+    "release": {
+      "builder": "@ng-easy/builders:semantic-release",
+      "configurations": {
+        "local": {
+          "force": true
+        }
+      }
     }
   },
   "tags": []

@@ -34,6 +34,14 @@
       "options": {
         "command": "npm publish --tag=latest --access public"
       }
+    },
+    "release": {
+      "builder": "@ng-easy/builders:semantic-release",
+      "configurations": {
+        "local": {
+          "force": true
+        }
+      }
     }
   },
   "tags": []

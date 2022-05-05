@@ -8,7 +8,9 @@
     "test": "nx test",
     "prepare": "husky install",
     "clean": "rimraf dist",
-    "nx": "nx"
+    "nx": "nx",
+    "release:all": "nx run-many --target=release --all",
+    "build:all": "nx run-many --target=build --all --configuration production --parallel"
   },
   "private": true,
   "devDependencies": {

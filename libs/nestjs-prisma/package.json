@@ -1,5 +1,8 @@
 {
   "name": "@prisma-utils/nestjs-prisma",
   "version": "0.0.1",
-  "type": "commonjs"
+  "type": "commonjs",
+  "publishConfig": {
+    "access": "public"
+  }
 }

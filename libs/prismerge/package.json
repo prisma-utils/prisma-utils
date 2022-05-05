@@ -3,5 +3,8 @@
   "version": "0.0.1",
   "bin": {
     "prismerge": "./src/bin/prismerge.js"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
