@@ -1,7 +1,5 @@
-# File for Pull Request on main branch
 name: CI
 
-# When a PR is opened to main
 on:
   push:
     branches:
@@ -9,48 +7,129 @@ on:
   pull_request:
     branches:
       - main
-    types: [opened, reopened, synchronize]
 
 jobs:
-  build:
-    # Setup OS and Node Version
+  npm:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        # Node versions
-        node-version: [14.x, 16.x]
 
-    # Pipeline Steps
     steps:
-      #1 - Checkout code
       - name: Checkout Code
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
 
-      #2 - Make sure we have all branches
-      - name: Fetch other branches
-        run: git fetch --no-tags --prune --depth=5 origin main
-
-      #3 - Run initial node setup
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
+          node-version: 16.x
 
-      #4 - Clean up folders and run a new install
-      - name: Install Dependencies
-        run: |
-          rm -rf node_modules && rm -rf dist && rm -rf docs && rm -rf coverage
-          npm ci
+      - name: NPM
+        uses: ng-easy/npm-setup@v2
 
-      #5 - Run Linting
-      - name: Run Lint
-        run: ./.github/scripts/run-linting.sh False
+  build:
+    name: Build
+    needs: [npm]
+    runs-on: ubuntu-latest
+    outputs:
+      has-build-artifacts: ${{ steps.check-uploaded-artifacts.outputs.has-build-artifacts }}
 
-      #6 - Run Tests
-      - name: Run Tests
-        run: ./.github/scripts/run-testing.sh False
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: NPM
+        uses: ng-easy/npm-setup@v2
+        with:
+          nx-key: build
+
+      - name: Build
+        uses: mansagroup/nrwl-nx-action@v2
+        with:
+          targets: build
+          parallel: 'true'
+          nxCloud: 'true'
+          affected: 'false'
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: dist
+          if-no-files-found: ignore
+
+      - name: Check uploaded artifacts
+        id: check-uploaded-artifacts
+        run: echo "::set-output name=has-build-artifacts::${{ hashFiles('dist/**') != '' }}"
+
+  lint:
+    name: Lint
+    needs: [npm]
+    runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Fetch latest base branch
+        run: git fetch origin main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: NPM
+        uses: ng-easy/npm-setup@v2
+        with:
+          nx-key: lint
+
+      - name: Lint workspace
+        run: npm run lint:workspace
+
+      - name: Lint projects
+        uses: mansagroup/nrwl-nx-action@v2
+        with:
+          targets: lint
+          parallel: 'true'
+          nxCloud: 'true'
+          affected: 'false'
+
+  test:
+    name: Test
+    needs: [npm]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Fetch latest base branch
+        run: git fetch origin main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: NPM
+        uses: ng-easy/npm-setup@v2
+        with:
+          nx-key: test
+
+      - name: Test
+        uses: mansagroup/nrwl-nx-action@v2
+        with:
+          targets: test
+          parallel: 'true'
+          maxParallel: '3'
+          nxCloud: 'true'
+          affected: 'false'
