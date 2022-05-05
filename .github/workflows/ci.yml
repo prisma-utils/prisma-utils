@@ -69,6 +69,7 @@ jobs:
     name: Lint
     needs: [npm]
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -88,9 +89,6 @@ jobs:
         with:
           nx-key: lint
 
-      - name: Lint workspace
-        run: npm run lint:workspace
-
       - name: Lint projects
         uses: mansagroup/nrwl-nx-action@v2
         with:
@@ -102,6 +100,7 @@ jobs:
     name: Test
     needs: [npm]
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
