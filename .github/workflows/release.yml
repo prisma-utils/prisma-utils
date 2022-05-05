@@ -1,0 +1,42 @@
+name: Release
+on:
+  workflow_dispatch: # manual release
+
+jobs:
+  npm:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false # Needed so that semantic release can use the admin token
+
+      - name: Fetch latest base branch
+        run: git fetch origin main
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Setup NPM
+        uses: ng-easy/npm-setup@v2
+
+      - name: Build release scripts
+        uses: mansagroup/nrwl-nx-action@v2
+        with:
+          targets: build
+          projects: builders
+
+      - name: Release
+        uses: mansagroup/nrwl-nx-action@v2.1.0
+        with:
+          targets: release
+          affected: 'false'
+        env:
+          CI: true
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }} # Personal access token with repo permissions
