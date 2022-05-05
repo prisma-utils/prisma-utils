@@ -28,13 +28,16 @@ jobs:
       - name: Build release scripts
         uses: mansagroup/nrwl-nx-action@v2
         with:
-          targets: build:all
-          projects: builders
+          targets: build
+          parallel: 'true'
+          projects: nestjs-prisma,prismerge
 
       - name: Release
         uses: mansagroup/nrwl-nx-action@v2.1.0
         with:
-          targets: release:all
+          targets: release
+          parallel: 'true'
+          all: 'true'
           affected: 'false'
         env:
           CI: true
