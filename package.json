@@ -9,7 +9,6 @@
     "prepare": "husky install",
     "clean": "rimraf dist",
     "nx": "nx",
-    "release:all": "nx run-many --target=release --all",
     "build:all": "nx run-many --target=build --all --configuration production --parallel"
   },
   "private": true,
@@ -18,7 +17,7 @@
     "@commitlint/config-conventional": "^16.2.1",
     "@nestjs/schematics": "^8.0.0",
     "@nestjs/testing": "^8.0.0",
-    "@ng-easy/builders": "^7.0.2",
+    "@ng-easy/builders": "^7.1.0",
     "@nrwl/cli": "13.10.3",
     "@nrwl/eslint-plugin-nx": "13.10.3",
     "@nrwl/jest": "13.10.3",

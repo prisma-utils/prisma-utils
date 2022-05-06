@@ -4,7 +4,6 @@ import { PrismaModuleOptions } from './interfaces/prisma-module.options';
 import { PrismaService } from './prisma.service';
 
 @Module({
-  controllers: [],
   providers: [PrismaService],
   exports: [PrismaService],
 })
