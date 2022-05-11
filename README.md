@@ -1,6 +1,6 @@
 # PrismaUtils
 
-All packages are distributed via `@prisma-utils` namespace on npm.
+All packages are distributed via `@prisma-utils` namespace on npm!
 
 This project was generated using [Nx](https://nx.dev).
 
