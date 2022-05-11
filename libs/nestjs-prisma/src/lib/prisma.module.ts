@@ -25,8 +25,6 @@ export class PrismaModule {
     };
   }
 
-  /*
-  // TODO: We need to fix the async stuff
   static forRootAsync(options: PrismaModuleAsyncOptions): DynamicModule {
     return {
       global: options.isGlobal,
@@ -43,13 +41,16 @@ export class PrismaModule {
       return this.createAsyncOptionsProvider(options);
     }
 
-    return [
-      ...this.createAsyncOptionsProvider(options),
-      {
-        provide: options.useClass,
-        useClass: options.useClass,
-      },
-    ];
+    if (options.useClass) {
+      return [
+        ...this.createAsyncOptionsProvider(options),
+        {
+          provide: options.useClass,
+          useClass: options.useClass,
+        },
+      ];
+    }
+    return [...this.createAsyncOptionsProvider(options)];
   }
 
   private static createAsyncOptionsProvider(
@@ -64,14 +65,36 @@ export class PrismaModule {
         },
       ];
     }
+
+    if (options.useExisting) {
+      return [
+        {
+          provide: PRISMA_SERVICE_OPTIONS,
+          useFactory: async (optionsFactory: PrismaOptionsFactory) =>
+            await optionsFactory.createPrismaOptions(),
+          inject: [options.useExisting],
+        },
+      ];
+    }
+
+    if (options.useClass) {
+      return [
+        {
+          provide: PRISMA_SERVICE_OPTIONS,
+          useFactory: async (optionsFactory: PrismaOptionsFactory) =>
+            await optionsFactory.createPrismaOptions(),
+          inject: [options.useClass],
+        },
+      ];
+    }
+
     return [
       {
         provide: PRISMA_SERVICE_OPTIONS,
         useFactory: async (optionsFactory: PrismaOptionsFactory) =>
           await optionsFactory.createPrismaOptions(),
-        inject: [options.useExisting || options.useClass],
+        inject: [],
       },
     ];
   }
-  */
 }
