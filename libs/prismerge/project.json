@@ -1,5 +1,4 @@
 {
-  "root": "libs/prismerge",
   "sourceRoot": "libs/prismerge/src",
   "projectType": "library",
   "targets": {
@@ -14,7 +13,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/prismerge"],
       "options": {
-        "jestConfig": "libs/prismerge/jest.config.js",
+        "jestConfig": "libs/prismerge/jest.config.ts",
         "passWithNoTests": true
       }
     },

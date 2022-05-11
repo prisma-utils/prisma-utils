@@ -1,5 +1,4 @@
 {
-  "root": "libs/nx-generators",
   "sourceRoot": "libs/nx-generators/src",
   "projectType": "library",
   "targets": {

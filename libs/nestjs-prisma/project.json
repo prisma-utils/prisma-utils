@@ -1,5 +1,4 @@
 {
-  "root": "libs/nestjs-prisma",
   "sourceRoot": "libs/nestjs-prisma/src",
   "targets": {
     "build": {
@@ -24,7 +23,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/nestjs-prisma"],
       "options": {
-        "jestConfig": "libs/nestjs-prisma/jest.config.js",
+        "jestConfig": "libs/nestjs-prisma/jest.config.ts",
         "passWithNoTests": true
       }
     },

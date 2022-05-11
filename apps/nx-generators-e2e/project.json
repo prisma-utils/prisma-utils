@@ -1,5 +1,4 @@
 {
-  "root": "apps/nx-generators-e2e",
   "projectType": "application",
   "sourceRoot": "apps/nx-generators-e2e/src",
   "targets": {

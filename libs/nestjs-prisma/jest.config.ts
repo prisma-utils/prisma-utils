@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'api',
-  preset: '../../jest.preset.js',
+  displayName: 'nestjs-prisma',
+
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -11,5 +11,6 @@ module.exports = {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/api',
+  coverageDirectory: '../../coverage/libs/nestjs-prisma',
+  preset: '../../jest.preset.ts',
 };
