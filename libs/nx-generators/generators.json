@@ -3,10 +3,10 @@
   "name": "nx-generators",
   "version": "0.0.1",
   "generators": {
-    "nx-generators": {
-      "factory": "./src/generators/nx-generators/generator",
-      "schema": "./src/generators/nx-generators/schema.json",
-      "description": "nx-generators generator"
+    "prismerge": {
+      "factory": "./src/generators/prismerge/generator",
+      "schema": "./src/generators/prismerge/schema.json",
+      "description": "prismerge generator"
     }
   }
 }
