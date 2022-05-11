@@ -1,6 +1,6 @@
 {
   "name": "@prisma-utils/prismerge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "bin": {
     "prismerge": "./src/bin/prismerge.js"
   },
