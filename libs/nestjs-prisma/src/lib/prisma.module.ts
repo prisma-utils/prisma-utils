@@ -25,6 +25,8 @@ export class PrismaModule {
     };
   }
 
+  /*
+  // TODO: We need to fix the async stuff
   static forRootAsync(options: PrismaModuleAsyncOptions): DynamicModule {
     return {
       global: options.isGlobal,
@@ -71,4 +73,5 @@ export class PrismaModule {
       },
     ];
   }
+  */
 }
