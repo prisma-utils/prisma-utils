@@ -1,5 +1,6 @@
 export interface NxGeneratorsGeneratorSchema {
   name: string;
-  tags?: string;
-  directory?: string;
+  library: string;
+  directory: string;
+  prismergeFile: string;
 }
