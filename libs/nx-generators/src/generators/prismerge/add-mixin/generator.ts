@@ -33,8 +33,12 @@ export default async function (tree: Tree, options: AddMixinGeneratorSchema) {
   );
 
   updateJson(tree, options.prismergeFile, (prisMergeFile) => {
-    prisMergeFile.input = prisMergeFile.mixins ?? [];
-    prisMergeFile.input.push(`${modelRoot}/${options.name}.prisma.mixin`);
+    prisMergeFile.mixins = prisMergeFile.mixins ?? {};
+
+    prisMergeFile.mixins = {
+      ...prisMergeFile.mixins,
+      ...{ [mixin]: `${modelRoot}/${options.name}.prisma.mixin` },
+    };
 
     return prisMergeFile;
   });
