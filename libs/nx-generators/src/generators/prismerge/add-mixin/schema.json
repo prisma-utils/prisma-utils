@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "AddMixin",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the Mixin to be generated.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "library": {
+      "type": "string",
+      "description": "The library to add the prisma file to.",
+      "alias": "lib",
+      "$default": {
+        "$source": "projectName"
+      },
+      "x-prompt": "What is the name of the library for this model?"
+    },
+    "directory": {
+      "type": "string",
+      "description": "A directory where the model is created.",
+      "alias": "dir",
+      "x-prompt": "In which subdirectory should the model be created?"
+    },
+    "prismergeFile": {
+      "type": "string",
+      "description": "Location of Prismerge File.",
+      "default": "./prismerge.json"
+    }
+  },
+  "required": ["name", "library", "directory", "prismergeFile"]
+}
