@@ -33,7 +33,7 @@ export default async function (tree: Tree, options: AddModelGeneratorSchema) {
   );
 
   updateJson(tree, options.prismergeFile, (prisMergeFile) => {
-    prisMergeFile.input = prisMergeFile.input ?? [];
+    prisMergeFile.input = prisMergeFile.inputs ?? [];
     prisMergeFile.input.push(`${modelRoot}/${options.name}.prisma`);
 
     return prisMergeFile;
