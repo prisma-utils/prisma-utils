@@ -1,4 +1,5 @@
 export const prismergeFileStub = {
-  input: [],
+  inputs: [],
+  mixins: {},
   output: '',
 };
