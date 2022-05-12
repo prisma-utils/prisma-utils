@@ -2,11 +2,11 @@ import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nrwl/devkit';
 
 import generator from './generator';
-import { NxGeneratorsGeneratorSchema } from './schema';
+import { InitGeneratorSchema } from './schema';
 
-describe('nx-generators generator', () => {
+describe('init generator', () => {
   let appTree: Tree;
-  const options: NxGeneratorsGeneratorSchema = { name: 'test' };
+  const options: InitGeneratorSchema = { name: './prismerge.json' };
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();
