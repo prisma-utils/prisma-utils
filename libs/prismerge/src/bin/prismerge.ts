@@ -56,7 +56,7 @@ const bootstrap = () => {
   }
 
   const prisMergeContent = JSON.parse(readFileSync(inputPath, 'utf8'));
-  const prismaSchemaInputFiles = prisMergeContent.input;
+  const prismaSchemaInputFiles = prisMergeContent.inputs;
   const prismaSchemaOutputFile = prisMergeContent.output;
 
   let prismaContent = '';
