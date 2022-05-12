@@ -1,8 +1,8 @@
-import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import { Tree, readProjectConfiguration } from '@nrwl/devkit';
+import { Tree } from '@nrwl/devkit';
 
 import generator from './generator';
 import { AddModelGeneratorSchema } from './schema';
+import { createTreeWithLibrary } from './../../utils/testing';
 
 describe('add-model generator', () => {
   let appTree: Tree;
@@ -14,12 +14,14 @@ describe('add-model generator', () => {
   };
 
   beforeEach(() => {
-    appTree = createTreeWithEmptyWorkspace();
+    appTree = createTreeWithLibrary(options.library);
+    appTree.write(
+      options.prismergeFile,
+      JSON.stringify({ input: [], output: './prisma/schema.prisma' }),
+    );
   });
 
   it('should run successfully', async () => {
-    await generator(appTree, options);
-    const config = readProjectConfiguration(appTree, 'test');
-    expect(config).toBeDefined();
+    await expect(generator(appTree, options)).resolves.not.toThrowError();
   });
 });
