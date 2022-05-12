@@ -17,8 +17,6 @@ describe('init generator', () => {
   });
 
   it('should run successfully', async () => {
-    await generator(appTree, options);
-
-    expect(appTree.exists(`${options.directory}/${options.name}`)).toBeTruthy();
+    await expect(generator(appTree, options)).resolves.not.toThrowError();
   });
 });
