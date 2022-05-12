@@ -19,7 +19,7 @@
     "output": {
       "type": "string",
       "description": "Path to the output Prisma Schema file.",
-      "default": "./prisma/prisma.schema"
+      "default": "./prisma/schema.prisma"
     }
   },
   "required": ["name", "output"]

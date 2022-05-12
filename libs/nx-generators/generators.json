@@ -7,6 +7,11 @@
       "factory": "./src/generators/prismerge/init/generator",
       "schema": "./src/generators/prismerge/init/schema.json",
       "description": "Initialize PrisMerge"
+    },
+    "add-model": {
+      "factory": "./src/generators/prismerge/add-model/generator",
+      "schema": "./src/generators/prismerge/add-model/schema.json",
+      "description": "Add a new Prisma Model to PrisMerge File"
     }
   }
 }
