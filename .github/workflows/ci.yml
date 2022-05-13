@@ -22,7 +22,7 @@ jobs:
           node-version: 16.x
 
       - name: NPM
-        uses: ng-easy/npm-setup@v2
+        uses: ng-easy/npm-setup@v2.0.2
 
   build:
     name: Build
