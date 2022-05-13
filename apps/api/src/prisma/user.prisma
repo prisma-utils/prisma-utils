@@ -1,5 +1,6 @@
 model User {
-  id    Int    @id @default(autoincrement())
+  __id__
+
   name String
   articles Article[]
 

@@ -14,7 +14,9 @@ datasource db {
 }
 
 model User {
-  id       Int       @id @default(autoincrement())
+  id Int @id @default(autoincrement())
+
+
   name     String
   articles Article[]
 
@@ -22,7 +24,9 @@ model User {
 }
 
 model Article {
-  id    Int    @id @default(autoincrement())
+  id Int @id @default(autoincrement())
+
+
   title String
   text  String
 

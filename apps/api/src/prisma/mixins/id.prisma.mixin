@@ -1,0 +1,1 @@
+id    Int    @id @default(autoincrement())
