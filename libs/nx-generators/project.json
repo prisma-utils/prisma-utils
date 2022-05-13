@@ -7,6 +7,7 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/nx-generators",
+        "packageJson": "libs/nx-generators/package.json",
         "main": "libs/nx-generators/src/index.ts",
         "tsConfig": "libs/nx-generators/tsconfig.lib.json",
         "assets": [
