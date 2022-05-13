@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.0.3...@prisma-utils/nestjs-prisma@1.0.4) (2022-05-13)
+
+
+### Bug Fixes
+
+* adding package.json link ([76af831](https://github.com/prisma-utils/prisma-utils/commit/76af83118bcc8403471c4888a6cdead0b9baf5fc))
+
 ## [1.0.3](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.0.2...@prisma-utils/nestjs-prisma@1.0.3) (2022-05-13)
 
 
