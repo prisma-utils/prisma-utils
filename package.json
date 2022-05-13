@@ -13,6 +13,7 @@
   },
   "private": true,
   "devDependencies": {
+    "@angular-devkit/core": "^13.3.5",
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@nestjs/schematics": "^8.0.0",

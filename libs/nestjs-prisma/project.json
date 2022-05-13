@@ -27,13 +27,6 @@
         "passWithNoTests": true
       }
     },
-    "publish": {
-      "executor": "@nrwl/workspace:run-commands",
-      "outputs": [],
-      "options": {
-        "command": "npm publish --tag=latest --access public"
-      }
-    },
     "release": {
       "executor": "@ng-easy/builders:semantic-release",
       "configurations": {
