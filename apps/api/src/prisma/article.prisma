@@ -1,5 +1,6 @@
 model Article {
-  id    Int    @id @default(autoincrement())
+  __id__
+
   title String
   text  String
 

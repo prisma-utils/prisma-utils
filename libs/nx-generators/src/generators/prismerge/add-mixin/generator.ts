@@ -21,9 +21,10 @@ export default async function (tree: Tree, options: AddMixinGeneratorSchema) {
     template: '',
   };
 
-  const modelRoot = `./${
-    readProjectConfiguration(tree, options.library).root
-  }/src/lib/${options.directory}`;
+  const modelRoot = path.join(
+    readProjectConfiguration(tree, options.library).root,
+    options.directory,
+  );
 
   generateFiles(
     tree,

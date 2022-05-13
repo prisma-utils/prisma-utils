@@ -56,7 +56,8 @@ const bootstrap = () => {
   }
 
   const prisMergeContent = JSON.parse(readFileSync(inputPath, 'utf8'));
-  const prismaSchemaInputFiles = prisMergeContent.inputs;
+  const prismaSchemaInputFiles = prisMergeContent.inputs || [];
+  const prismaSchemaMixinFiles = prisMergeContent.mixins || {};
   const prismaSchemaOutputFile = prisMergeContent.output;
 
   let prismaContent = '';
@@ -65,6 +66,13 @@ const bootstrap = () => {
   prismaSchemaInputFiles.forEach((schemaFile: string) => {
     const content = readFileSync(schemaFile, 'utf8');
     prismaContent = prismaContent + content;
+  });
+
+  Object.entries(prismaSchemaMixinFiles).forEach(([key, filePath]) => {
+    // find key and replace with content from value
+    const content = readFileSync(filePath as string, 'utf8');
+    const regEx = new RegExp(`__${key}__`, 'g');
+    prismaContent = prismaContent.replace(regEx, content);
   });
 
   writeFileSync(prismaSchemaOutputFile, prismaContent, { encoding: 'utf8' });
