@@ -22,7 +22,7 @@ jobs:
           node-version: 16.x
 
       - name: Show NX Details
-        run: nx report
+        run: npx nx report
 
       - name: NPM
         uses: ng-easy/npm-setup@v2.0.2
