@@ -1,3 +1,17 @@
+## [1.1.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.1.0...@prisma-utils/prismerge@1.1.1) (2022-05-13)
+
+
+### Bug Fixes
+
+* add publish config ([ba3f6c7](https://github.com/prisma-utils/prisma-utils/commit/ba3f6c73a29f482b5e6070c1ec9d68d8c76c8746))
+
+## [1.1.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.1.0...@prisma-utils/prismerge@1.1.1) (2022-05-13)
+
+
+### Bug Fixes
+
+* add publish config ([ba3f6c7](https://github.com/prisma-utils/prisma-utils/commit/ba3f6c73a29f482b5e6070c1ec9d68d8c76c8746))
+
 ## [1.0.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.0.0...@prisma-utils/prismerge@1.0.1) (2022-05-11)
 
 
