@@ -18,7 +18,7 @@
     "@nestjs/schematics": "^8.0.0",
     "@nestjs/testing": "^8.0.0",
     "@ng-easy/builders": "^7.1.0",
-    "@nrwl/cli": "13.10.3",
+    "@nrwl/cli": "14.1.5",
     "@nrwl/devkit": "14.1.5",
     "@nrwl/eslint-plugin-nx": "14.1.5",
     "@nrwl/jest": "14.1.5",
@@ -56,4 +56,3 @@
     "tslib": "^2.0.0"
   }
 }
-
