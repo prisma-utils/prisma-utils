@@ -19,15 +19,15 @@
     "@nestjs/testing": "^8.0.0",
     "@ng-easy/builders": "^7.1.0",
     "@nrwl/cli": "13.10.3",
-    "@nrwl/devkit": "14.1.4",
-    "@nrwl/eslint-plugin-nx": "14.1.4",
-    "@nrwl/jest": "14.1.4",
-    "@nrwl/js": "14.1.4",
-    "@nrwl/linter": "14.1.4",
-    "@nrwl/nest": "14.1.4",
-    "@nrwl/node": "14.1.4",
-    "@nrwl/nx-plugin": "14.1.4",
-    "@nrwl/workspace": "14.1.4",
+    "@nrwl/devkit": "14.1.5",
+    "@nrwl/eslint-plugin-nx": "14.1.5",
+    "@nrwl/jest": "14.1.5",
+    "@nrwl/js": "14.1.5",
+    "@nrwl/linter": "14.1.5",
+    "@nrwl/nest": "14.1.5",
+    "@nrwl/node": "14.1.5",
+    "@nrwl/nx-plugin": "14.1.5",
+    "@nrwl/workspace": "14.1.5",
     "@types/jest": "27.4.1",
     "@types/node": "^16.11.7",
     "@typescript-eslint/eslint-plugin": "~5.18.0",
@@ -36,7 +36,7 @@
     "eslint-config-prettier": "8.1.0",
     "husky": "^7.0.4",
     "jest": "27.5.1",
-    "nx": "14.1.4",
+    "nx": "14.1.5",
     "prettier": "^2.5.1",
     "prisma": "^3.14.0",
     "rimraf": "^3.0.2",
@@ -56,3 +56,4 @@
     "tslib": "^2.0.0"
   }
 }
+
