@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.1.1...@prisma-utils/prismerge@1.1.2) (2022-05-13)
+
+
+### Bug Fixes
+
+* adding package.json link ([76af831](https://github.com/prisma-utils/prisma-utils/commit/76af83118bcc8403471c4888a6cdead0b9baf5fc))
+
 ## [1.1.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.1.0...@prisma-utils/prismerge@1.1.1) (2022-05-13)
 
 
