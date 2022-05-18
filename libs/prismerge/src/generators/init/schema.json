@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "Init",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The filename of the PrisMerge file.",
+      "default": "prismerge.json"
+    },
+    "directory": {
+      "type": "string",
+      "description": "The path where the PrisMerge file should be placed.",
+      "alias": "dir",
+      "default": "."
+    },
+    "output": {
+      "type": "string",
+      "description": "Path to the output Prisma Schema file.",
+      "default": "./prisma/schema.prisma"
+    }
+  },
+  "required": ["name", "output"]
+}

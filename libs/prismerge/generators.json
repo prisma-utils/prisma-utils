@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "prismerge",
+  "version": "0.0.1",
+  "generators": {
+    "init": {
+      "factory": "./src/generators/init/generator",
+      "schema": "./src/generators/init/schema.json",
+      "description": "Initialize PrisMerge"
+    },
+    "add-model": {
+      "factory": "./src/generators/add-model/generator",
+      "schema": "./src/generators/add-model/schema.json",
+      "description": "Add a new Prisma Model to PrisMerge File"
+    },
+    "add-mixin": {
+      "factory": "./src/generators/add-mixin/generator",
+      "schema": "./src/generators/add-mixin/schema.json",
+      "description": "Add a new Mixin to the PrisMerge File"
+    }
+  }
+}
