@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'prismerge',
+  displayName: 'prismerge-e2e',
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +11,5 @@ export default {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/libs/prismerge',
+  coverageDirectory: '../../coverage/apps/prismerge-e2e',
 };

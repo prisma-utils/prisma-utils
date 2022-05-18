@@ -3,8 +3,7 @@
   "projects": {
     "api": "apps/api",
     "nestjs-prisma": "libs/nestjs-prisma",
-    "nx-generators": "libs/nx-generators",
-    "nx-generators-e2e": "apps/nx-generators-e2e",
-    "prismerge": "libs/prismerge"
+    "prismerge": "libs/prismerge",
+    "prismerge-e2e": "apps/prismerge-e2e"
   }
 }
