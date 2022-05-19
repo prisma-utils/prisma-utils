@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.0.0...@prisma-utils/nestjs-prisma@1.1.0) (2022-05-19)
+
+
+### Features
+
+* :sparkles: bump major version ([7870bc7](https://github.com/prisma-utils/prisma-utils/commit/7870bc7baedb2943ad488ca8073106b9216bf884))
+
+
+### BREAKING CHANGES
+
+* New version
+
 # 1.0.0 (2022-05-19)
 
 
