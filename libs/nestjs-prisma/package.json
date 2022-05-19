@@ -4,5 +4,9 @@
   "type": "commonjs",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0"
   }
 }
