@@ -9,6 +9,7 @@
       "options": {
         "outputPath": "dist/libs/prismerge",
         "main": "libs/prismerge/src/index.ts",
+        "packageJson": "libs/prismerge/package.json",
         "tsConfig": "libs/prismerge/tsconfig.lib.json",
         "assets": [
           "libs/prismerge/*.md",
