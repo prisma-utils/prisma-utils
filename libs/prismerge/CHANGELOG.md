@@ -5,6 +5,13 @@
 
 * :sparkles: bump minor version ([79b866e](https://github.com/prisma-utils/prisma-utils/commit/79b866eba364235e83391dc0835d64a8bd80f38d))
 
+# [1.1.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.0.0...@prisma-utils/prismerge@1.1.0) (2022-05-19)
+
+
+### Features
+
+* :sparkles: bump minor version ([79b866e](https://github.com/prisma-utils/prisma-utils/commit/79b866eba364235e83391dc0835d64a8bd80f38d))
+
 # 1.0.0 (2022-05-19)
 
 
