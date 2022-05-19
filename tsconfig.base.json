@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@prisma-utils/nestjs-prisma": ["libs/nestjs-prisma/src/index.ts"]
+      "@prisma-utils/nestjs-prisma": ["libs/nestjs-prisma/src/index.ts"],
+      "@prisma-utils/prismerge": ["libs/prismerge/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

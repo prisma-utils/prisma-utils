@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "prismerge",
+  "version": "0.0.1",
+  "generators": {
+    "prismerge": {
+      "factory": "./src/generators/prismerge/generator",
+      "schema": "./src/generators/prismerge/schema.json",
+      "description": "prismerge generator"
+    }
+  }
+}
