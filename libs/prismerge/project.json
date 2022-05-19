@@ -49,6 +49,12 @@
         "jestConfig": "libs/prismerge/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "release": {
+      "executor": "@ng-easy/builders:semantic-release",
+      "options": {
+        "mode": "sync"
+      }
     }
   },
   "tags": []
