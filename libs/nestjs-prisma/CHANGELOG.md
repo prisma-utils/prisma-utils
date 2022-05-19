@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.1.1...@prisma-utils/nestjs-prisma@1.2.0) (2022-05-19)
+
+
+### Features
+
+* trigger release ([8f5f286](https://github.com/prisma-utils/prisma-utils/commit/8f5f286e4a41cba5358510fcc9faad12399cbb2d))
+
 ## [1.1.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.1.0...@prisma-utils/nestjs-prisma@1.1.1) (2022-05-19)
 
 
