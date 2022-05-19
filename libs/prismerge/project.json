@@ -52,10 +52,7 @@
       }
     },
     "release": {
-      "executor": "@ng-easy/builders:semantic-release",
-      "options": {
-        "mode": "sync"
-      }
+      "executor": "@ng-easy/builders:semantic-release"
     }
   },
   "tags": []
