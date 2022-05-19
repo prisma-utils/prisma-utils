@@ -41,17 +41,17 @@ const bootstrap = () => {
         encoding: 'utf-8',
       });
       console.log(
-        `File ${inputPath} was successfully created; exiting program!`,
+        `File ${inputPath} was successfully created; exiting PrisMerge!`,
       );
       exit(0);
     } else {
-      console.log(`File ${inputPath} does already exist; exiting program!`);
+      console.log(`File ${inputPath} does already exist; exiting PrisMerge!`);
       exit(1);
     }
   }
 
   if (!existsSync(inputPath)) {
-    console.log(`Cannot read file ${inputPath}; exiting program!`);
+    console.log(`Cannot read file ${inputPath}; exiting PrisMerge!`);
     exit(1);
   }
 
