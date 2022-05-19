@@ -8,11 +8,5 @@
     "access": "public"
   },
   "main": "src/index.js",
-  "generators": "./generators.json",
-  "bin": {
-    "prismerge": "./src/bin/prismerge.js"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+  "generators": "./generators.json"
 }
