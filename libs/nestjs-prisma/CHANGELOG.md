@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.3.0...@prisma-utils/nestjs-prisma@1.3.1) (2022-05-19)
+
+
+### Bug Fixes
+
+* sync versions ([4afc9af](https://github.com/prisma-utils/prisma-utils/commit/4afc9afc3aa131fac6e965f57d1a7d0025aca209))
+
 # [1.3.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.2.0...@prisma-utils/nestjs-prisma@1.3.0) (2022-05-19)
 
 
