@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.1.0...@prisma-utils/nestjs-prisma@1.1.1) (2022-05-19)
+
+
+### Bug Fixes
+
+* add missing property ([a10d18c](https://github.com/prisma-utils/prisma-utils/commit/a10d18cd8d72f3f60cb0e24bc0e3cf9369058bcc))
+
 # [1.1.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.0.0...@prisma-utils/nestjs-prisma@1.1.0) (2022-05-19)
 
 
