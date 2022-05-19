@@ -1,3 +1,20 @@
+# [1.4.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.3.1...@prisma-utils/nestjs-prisma@1.4.0) (2022-05-19)
+
+
+### Bug Fixes
+
+* remove sync-mode ([09a0534](https://github.com/prisma-utils/prisma-utils/commit/09a0534f73601b5d39d11d28bd3c646081a0531b))
+
+
+### Features
+
+* version bump ([962032b](https://github.com/prisma-utils/prisma-utils/commit/962032b0d2aeed2d38f9b9186158f89e36f2ce44))
+
+
+### BREAKING CHANGES
+
+* nx generators now in this package
+
 ## [1.3.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.3.0...@prisma-utils/nestjs-prisma@1.3.1) (2022-05-19)
 
 
