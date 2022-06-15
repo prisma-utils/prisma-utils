@@ -10,6 +10,7 @@ describe('add-model generator', () => {
     name: 'test',
     directory: 'test',
     library: 'test',
+    app: 'app',
     prismergeFile: './prismerge.json',
   };
 
