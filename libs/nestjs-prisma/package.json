@@ -4,5 +4,10 @@
   "type": "commonjs",
   "publishConfig": {
     "access": "public"
+  },
+  "author": {
+    "name": "Johannes Schobel",
+    "email": "johannes.schobel@googlemail.com",
+    "url": "https://github.com/johannesschobel"
   }
 }
