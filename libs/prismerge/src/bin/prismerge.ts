@@ -26,7 +26,7 @@ const bootstrap = () => {
       'Path to the PrisMerge File, relative to the current working directory.',
       './prismerge.json',
     )
-    .option('-g, --generate', 'Generate a default File first.')
+    .option('-g, --generate', 'Generate a default file first.')
     .option('-nF, --no-format', 'Format the Prisma File after generation.')
     .parse(process.argv);
 
@@ -35,6 +35,7 @@ const bootstrap = () => {
   const basePath = path.join(process.cwd());
   const inputPath = path.join(basePath, options.input);
 
+  // check, if we need to generate the prismerge file
   if (options.generate) {
     if (!existsSync(inputPath)) {
       fs.writeFileSync(inputPath, JSON.stringify(prismergeFileStub), {
@@ -55,31 +56,39 @@ const bootstrap = () => {
     exit(1);
   }
 
+  // now we have everything ready
   const prisMergeContent = JSON.parse(readFileSync(inputPath, 'utf8'));
-  const prismaSchemaInputFiles = prisMergeContent.inputs || [];
-  const prismaSchemaMixinFiles = prisMergeContent.mixins || {};
-  const prismaSchemaOutputFile = prisMergeContent.output;
 
-  let prismaContent = '';
-  prismaContent = prismaContent + warningString;
+  Object.entries(prisMergeContent).forEach(([app, content]: [string, any]) => {
+    console.log(`Processing app: ${app}...`);
+    const prismaSchemaInputFiles = content.inputs || [];
+    const prismaSchemaMixinFiles = content.mixins || {};
+    const prismaSchemaOutputFile = content.output;
 
-  prismaSchemaInputFiles.forEach((schemaFile: string) => {
-    const content = readFileSync(schemaFile, 'utf8');
-    prismaContent = prismaContent + content;
+    let prismaContent = '';
+    prismaContent = prismaContent + warningString;
+
+    prismaSchemaInputFiles.forEach((schemaFile: string) => {
+      const content = readFileSync(schemaFile, 'utf8');
+      prismaContent = prismaContent + content;
+    });
+
+    Object.entries(prismaSchemaMixinFiles).forEach(([key, filePath]) => {
+      // find key and replace with content from value
+      const content = readFileSync(filePath as string, 'utf8');
+      const regEx = new RegExp(`__${key}__`, 'g');
+      prismaContent = prismaContent.replace(regEx, content);
+    });
+
+    writeFileSync(prismaSchemaOutputFile, prismaContent, { encoding: 'utf8' });
+
+    if (options.format) {
+      console.log(`Formatting file ${content.output}`);
+      execSync('npx prisma format');
+    }
+
+    console.log(`Done processing app ${app}`);
   });
-
-  Object.entries(prismaSchemaMixinFiles).forEach(([key, filePath]) => {
-    // find key and replace with content from value
-    const content = readFileSync(filePath as string, 'utf8');
-    const regEx = new RegExp(`__${key}__`, 'g');
-    prismaContent = prismaContent.replace(regEx, content);
-  });
-
-  writeFileSync(prismaSchemaOutputFile, prismaContent, { encoding: 'utf8' });
-
-  if (options.format) {
-    execSync('npx prisma format');
-  }
 };
 
 bootstrap();
