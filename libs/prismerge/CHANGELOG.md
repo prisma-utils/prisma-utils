@@ -14,6 +14,22 @@
 * fix add-mixin generator ([4d80aa1](https://github.com/prisma-utils/prisma-utils/commit/4d80aa10597f822ed43ecf3b3249519b44e94bcf))
 * update add-model generator ([ef29eeb](https://github.com/prisma-utils/prisma-utils/commit/ef29eebe43fa145b49f1fe9d340c282e3e7496f0))
 
+# [1.3.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.2.0...@prisma-utils/prismerge@1.3.0) (2022-06-15)
+
+
+### :bug: Bug Fixes
+
+* adapt init generator ([d0bc6fe](https://github.com/prisma-utils/prisma-utils/commit/d0bc6fe5e17d048ddd7658730d34dce1489de867))
+* add deps ([b40334c](https://github.com/prisma-utils/prisma-utils/commit/b40334c2e49266abebe498351ef85a8d86b2838f))
+* tests ([db7bb9c](https://github.com/prisma-utils/prisma-utils/commit/db7bb9c17efb1816374afe76d67ebef245ea71b1))
+
+
+### :sparkles: Features
+
+* add multiple apps ([896a37c](https://github.com/prisma-utils/prisma-utils/commit/896a37c08ad3bcb9b5975c110525847e0bfaf0d8))
+* fix add-mixin generator ([4d80aa1](https://github.com/prisma-utils/prisma-utils/commit/4d80aa10597f822ed43ecf3b3249519b44e94bcf))
+* update add-model generator ([ef29eeb](https://github.com/prisma-utils/prisma-utils/commit/ef29eebe43fa145b49f1fe9d340c282e3e7496f0))
+
 # [1.2.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.1.0...@prisma-utils/prismerge@1.2.0) (2022-05-19)
 
 
