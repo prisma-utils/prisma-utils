@@ -28,11 +28,18 @@
       "alias": "dir",
       "x-prompt": "In which subdirectory should the model be created?"
     },
+    "app": {
+      "type": "string",
+      "description": "The name of the app in the PrisMerge file.",
+      "alias": "dir",
+      "x-prompt": "The name of the app in the PrisMerge file",
+      "default": "app"
+    },
     "prismergeFile": {
       "type": "string",
       "description": "Location of Prismerge File.",
       "default": "./prismerge.json"
     }
   },
-  "required": ["name", "library", "directory", "prismergeFile"]
+  "required": ["name", "library", "directory", "app", "prismergeFile"]
 }

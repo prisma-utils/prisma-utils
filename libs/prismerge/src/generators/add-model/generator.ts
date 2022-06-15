@@ -8,16 +8,21 @@ import {
 } from '@nrwl/devkit';
 import * as path from 'path';
 import { AddModelGeneratorSchema } from './schema';
+import * as pluralize from 'pluralize';
+import { set, defaultsDeep } from 'lodash';
+import { prismergeFileAppStub } from '../../ui/prismerge.stub';
 
 export default async function (tree: Tree, options: AddModelGeneratorSchema) {
   const model = names(options.name).fileName;
   const modelName = names(options.name).className;
+  const modelMapName = pluralize(names(options.name).className.toLowerCase());
 
   const templateSchema = {
     ...options,
     ...names(options.name),
     model,
     modelName,
+    modelMapName,
     template: '',
   };
 
@@ -33,11 +38,15 @@ export default async function (tree: Tree, options: AddModelGeneratorSchema) {
     templateSchema,
   );
 
-  updateJson(tree, options.prismergeFile, (prisMergeFile) => {
-    prisMergeFile.inputs = prisMergeFile.inputs ?? [];
-    prisMergeFile.inputs.push(`${modelRoot}/${model}.prisma`);
+  updateJson(tree, options.prismergeFile, (content) => {
+    set(
+      content,
+      `${options.app}`,
+      defaultsDeep(content[options.app], prismergeFileAppStub),
+    );
+    content[options.app].inputs.push(`${modelRoot}/${model}.prisma`);
 
-    return prisMergeFile;
+    return content;
   });
 
   await formatFiles(tree);
