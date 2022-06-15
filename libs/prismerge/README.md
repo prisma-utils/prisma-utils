@@ -20,9 +20,11 @@ to create a default `prismerge.json` configuration file. This file looks like th
 
 ```json
 {
-  "inputs": [],
-  "mixins": {},
-  "output": ""
+  "app": {
+    "inputs": [],
+    "mixins": {},
+    "output": ""
+  }
 }
 ```
 
@@ -32,12 +34,14 @@ Now simply add paths to your `*.prisma` files for `inputs`, and define the `outp
 
 ```json
 {
-  "inputs": [
-    "./libs/core/prisma/base.prisma",
-    "./libs/user/prisma/user.prisma",
-    "./libs/article/prisma/article.prisma"
-  ],
-  "output": "./prisma/schema.prisma"
+  "app": {
+    "inputs": [
+      "./libs/core/prisma/base.prisma",
+      "./libs/user/prisma/user.prisma",
+      "./libs/article/prisma/article.prisma"
+    ],
+    "output": "./prisma/schema.prisma"
+  }
 }
 ```
 
@@ -48,6 +52,34 @@ npx prismerge -i prismerge.json
 ```
 
 will read all `*.prisma` files defined in `inputs` and merges them into one single `schema.prisma` file that can be read and processed by `Prisma`.
+
+Of course you can add additional `apps` (i.e., top level element of the `prismerge.json` file), if you have multiple services.
+
+```json
+{
+  "auth-service": {
+    "inputs": [
+      "./libs/auth/core/prisma/base.prisma",
+      "./libs/auth/user/prisma/user.prisma"
+    ],
+    "output": "./prisma/auth/schema.prisma"
+  },
+  "article-service": {
+    "inputs": [
+      "./libs/article/core/prisma/base.prisma",
+      "./libs/article/article/prisma/article.prisma"
+    ],
+    "output": "./prisma/article/schema.prisma"
+  },
+  "log-service": {
+    "inputs": [
+      "./libs/log/core/prisma/base.prisma",
+      "./libs/log/prisma/log.prisma"
+    ],
+    "output": "./prisma/log/schema.prisma"
+  }
+}
+```
 
 ## Mixins
 
@@ -81,15 +113,17 @@ Second, add the mixin to your `prismerge.json` file as follows and assign a prop
 
 ```json
 {
-  "inputs": [
-    "./libs/core/prisma/base.prisma",
-    "./libs/user/prisma/user.prisma",
-    "./libs/article/prisma/article.prisma"
-  ],
-  "mixins": {
-    "id": "./my/custom/path/id.prisma.mixin"
-  },
-  "output": "./prisma/schema.prisma"
+  "app": {
+    "inputs": [
+      "./libs/core/prisma/base.prisma",
+      "./libs/user/prisma/user.prisma",
+      "./libs/article/prisma/article.prisma"
+    ],
+    "mixins": {
+      "id": "./my/custom/path/id.prisma.mixin"
+    },
+    "output": "./prisma/schema.prisma"
+  }
 }
 ```
 
