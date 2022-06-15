@@ -1,7 +1,9 @@
+export const prismergeFileAppStub = {
+  inputs: [],
+  mixins: {},
+  output: '',
+};
+
 export const prismergeFileStub = {
-  app: {
-    inputs: [],
-    mixins: {},
-    output: '',
-  },
+  app: prismergeFileAppStub,
 };
