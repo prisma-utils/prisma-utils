@@ -1,5 +1,7 @@
 {
-  "inputs": [],
-  "mixins": [],
-  "output": "<%= prismaSchemaFilePath %>"
+  "app": {
+    "inputs": [],
+    "mixins": {},
+    "output": "<%= prismaSchemaFilePath %>"
+  }
 }
