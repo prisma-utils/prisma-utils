@@ -1,8 +1,6 @@
 import {
   formatFiles,
   generateFiles,
-  getWorkspaceLayout,
-  getWorkspacePath,
   names,
   offsetFromRoot,
   Tree,
