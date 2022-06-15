@@ -8,6 +8,8 @@ import {
 } from '@nrwl/devkit';
 import * as path from 'path';
 import { AddMixinGeneratorSchema } from './schema';
+import { set, defaultsDeep } from 'lodash';
+import { prismergeFileAppStub } from '../../ui/prismerge.stub';
 
 export default async function (tree: Tree, options: AddMixinGeneratorSchema) {
   const mixin = names(options.name).fileName;
@@ -33,15 +35,19 @@ export default async function (tree: Tree, options: AddMixinGeneratorSchema) {
     templateSchema,
   );
 
-  updateJson(tree, options.prismergeFile, (prisMergeFile) => {
-    prisMergeFile.mixins = prisMergeFile.mixins ?? {};
+  updateJson(tree, options.prismergeFile, (content) => {
+    set(
+      content,
+      `${options.app}`,
+      defaultsDeep(content[options.app], prismergeFileAppStub),
+    );
 
-    prisMergeFile.mixins = {
-      ...prisMergeFile.mixins,
+    content[options.app].mixins = {
+      ...content[options.app].mixins,
       ...{ [mixin]: `${modelRoot}/${options.name}.prisma.mixin` },
     };
 
-    return prisMergeFile;
+    return content;
   });
 
   await formatFiles(tree);
