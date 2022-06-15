@@ -1,11 +1,20 @@
 {
-  "inputs": [
-    "./apps/api/src/prisma/base.prisma",
-    "./apps/api/src/prisma/user.prisma",
-    "./apps/api/src/prisma/article.prisma"
-  ],
-  "mixins": {
-    "id": "./apps/api/src/prisma/mixins/id.prisma.mixin"
+  "app1": {
+    "inputs": [
+      "./apps/api/src/prisma/base.prisma",
+      "./apps/api/src/prisma/user.prisma",
+      "./apps/api/src/prisma/article.prisma"
+    ],
+    "mixins": {
+      "id": "./apps/api/src/prisma/mixins/id.prisma.mixin"
+    },
+    "output": "./prisma/schema.prisma"
   },
-  "output": "./prisma/schema.prisma"
+  "app2": {
+    "inputs": ["./apps/api/src/prisma/base.prisma"],
+    "mixins": {
+      "id": "./apps/api/src/prisma/mixins/id.prisma.mixin"
+    },
+    "output": "./prisma/schema2.prisma"
+  }
 }
