@@ -54,6 +54,9 @@ jobs:
           parallel: 'true'
           affected: 'false'
 
+      - name: Run Prisma Generate
+        run: npx prisma generate
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:

@@ -8,7 +8,7 @@
     "mixins": {
       "id": "./apps/api/src/prisma/mixins/id.prisma.mixin"
     },
-    "output": "./prisma/app1.prisma"
+    "output": "./prisma/schema.prisma"
   },
   "app2": {
     "inputs": ["./apps/api/src/prisma/base.prisma"],
