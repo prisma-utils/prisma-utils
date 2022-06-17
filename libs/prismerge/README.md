@@ -53,6 +53,8 @@ npx prismerge -i prismerge.json
 
 will read all `*.prisma` files defined in `inputs` and merges them into one single `schema.prisma` file that can be read and processed by `Prisma`.
 
+### Apps
+
 Of course you can add additional `apps` (i.e., top level element of the `prismerge.json` file), if you have multiple services.
 
 ```json
@@ -80,6 +82,28 @@ Of course you can add additional `apps` (i.e., top level element of the `prismer
   }
 }
 ```
+
+### Globs
+
+PrisMerge also allows to use `glob` patterns for `inputs`. Consider the following example:
+
+```
+{
+  "app": {
+    "inputs": [
+      "./libs/*/prisma/*.prisma"
+    ],
+    "output": "./prisma/schema.prisma"
+  }
+}
+```
+
+This will, for example, find the `prisma` files in
+
+- `./libs/user/prisma/user.prisma`
+- `./libs/article/prisma/article.prisma`
+
+See the [glob docs](https://github.com/isaacs/node-glob) for more ideas, how this can be used.
 
 ## Mixins
 
