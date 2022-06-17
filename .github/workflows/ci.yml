@@ -47,15 +47,15 @@ jobs:
         with:
           nx-key: build
 
+      - name: Run Prisma Generate
+        run: npx prisma generate
+
       - name: Build
         uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: build
           parallel: 'true'
           affected: 'false'
-
-      - name: Run Prisma Generate
-        run: npx prisma generate
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
@@ -117,6 +117,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
+
+      - name: Run Prisma Generate
+        run: npx prisma generate
 
       - name: NPM
         uses: ng-easy/npm-setup@v2
