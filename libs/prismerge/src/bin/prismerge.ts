@@ -60,7 +60,7 @@ const bootstrap = async () => {
   // now we have everything ready
   const prisMergeContent = JSON.parse(readFileSync(inputPath, 'utf8'));
 
-  for (const [app, content] of prisMergeContent) {
+  for (const [app, content] of Object.entries(prisMergeContent) as [[string, any]]) {
     console.log(`Processing app: ${app}...`);
     const prismaSchemaInputFiles = content.inputs || [];
     const prismaSchemaMixinFiles = content.mixins || {};
