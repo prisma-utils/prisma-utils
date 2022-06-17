@@ -25,6 +25,9 @@ jobs:
       - name: Setup NPM
         uses: ng-easy/npm-setup@v2
 
+      - name: Run Prisma Generate
+        run: npx prisma generate
+
       - name: Build release scripts
         uses: mansagroup/nrwl-nx-action@v2
         with:
