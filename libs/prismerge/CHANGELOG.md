@@ -1,3 +1,18 @@
+## [1.3.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.3.0...@prisma-utils/prismerge@1.3.1) (2022-06-17)
+
+
+### :bug: Bug Fixes
+
+* add glob feature ([84d5341](https://github.com/prisma-utils/prisma-utils/commit/84d534149d21715b88c137389f24eadeb351feff))
+* add prisma generate to ci ([94a89c4](https://github.com/prisma-utils/prisma-utils/commit/94a89c48ee057701486a826988a95d41c0a30d8e))
+* add prisma generate to release ([b0d1309](https://github.com/prisma-utils/prisma-utils/commit/b0d130928b6f2ef06115d50d67a9bc598a9897cd))
+* minor change in tsconfig ([e0f90f8](https://github.com/prisma-utils/prisma-utils/commit/e0f90f882a50aef3261512d2fb89b86f45407328))
+
+
+### :memo: Documentation
+
+* update docs ([4a67e9d](https://github.com/prisma-utils/prisma-utils/commit/4a67e9dfb080a6e953410bf108e470f94033df2d))
+
 # [1.3.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.2.0...@prisma-utils/prismerge@1.3.0) (2022-06-15)
 
 
