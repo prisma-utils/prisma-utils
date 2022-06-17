@@ -8,13 +8,20 @@
     "mixins": {
       "id": "./apps/api/src/prisma/mixins/id.prisma.mixin"
     },
-    "output": "./prisma/schema.prisma"
+    "output": "./prisma/app1.prisma"
   },
   "app2": {
     "inputs": ["./apps/api/src/prisma/base.prisma"],
     "mixins": {
       "id": "./apps/api/src/prisma/mixins/id.prisma.mixin"
     },
-    "output": "./prisma/schema2.prisma"
+    "output": "./prisma/app2.prisma"
+  },
+  "glob": {
+    "inputs": ["./apps/**/prisma/*.prisma"],
+    "mixins": {
+      "id": "./apps/api/src/prisma/mixins/id.prisma.mixin"
+    },
+    "output": "./prisma/glob.prisma"
   }
 }
