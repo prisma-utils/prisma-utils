@@ -9,6 +9,7 @@ import * as fs from 'fs';
 import { warningString } from './../ui/warning';
 import { prismergeFileStub } from './../ui/prismerge.stub';
 import { exit } from 'process';
+import { glob } from 'glob';
 
 const bootstrap = () => {
   program
@@ -68,9 +69,15 @@ const bootstrap = () => {
     let prismaContent = '';
     prismaContent = prismaContent + warningString;
 
-    prismaSchemaInputFiles.forEach((schemaFile: string) => {
-      const content = readFileSync(schemaFile, 'utf8');
-      prismaContent = prismaContent + content;
+    prismaSchemaInputFiles.forEach((schemaEntry: string) => {
+      const schemaFilePaths = glob.sync(schemaEntry);
+
+      console.log(schemaFilePaths);
+
+      schemaFilePaths.forEach((schemaFilePath: string) => {
+        const content = readFileSync(schemaFilePath, 'utf8');
+        prismaContent = prismaContent + content;
+      });
     });
 
     Object.entries(prismaSchemaMixinFiles).forEach(([key, filePath]) => {
@@ -84,7 +91,7 @@ const bootstrap = () => {
 
     if (options.format) {
       console.log(`Formatting file ${content.output}`);
-      execSync('npx prisma format');
+      execSync(`npx prisma format --schema=${prismaSchemaOutputFile}`);
     }
 
     console.log(`Done processing app ${app}`);
