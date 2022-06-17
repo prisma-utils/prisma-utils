@@ -9,8 +9,9 @@ import * as fs from 'fs';
 import { warningString } from './../ui/warning';
 import { prismergeFileStub } from './../ui/prismerge.stub';
 import { exit } from 'process';
+import { glob } from 'glob'
 
-const bootstrap = () => {
+const bootstrap = async () => {
   program
     .version(
       // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -59,7 +60,7 @@ const bootstrap = () => {
   // now we have everything ready
   const prisMergeContent = JSON.parse(readFileSync(inputPath, 'utf8'));
 
-  Object.entries(prisMergeContent).forEach(([app, content]: [string, any]) => {
+  for (const [app, content] of prisMergeContent) {
     console.log(`Processing app: ${app}...`);
     const prismaSchemaInputFiles = content.inputs || [];
     const prismaSchemaMixinFiles = content.mixins || {};
@@ -68,10 +69,22 @@ const bootstrap = () => {
     let prismaContent = '';
     prismaContent = prismaContent + warningString;
 
-    prismaSchemaInputFiles.forEach((schemaFile: string) => {
-      const content = readFileSync(schemaFile, 'utf8');
-      prismaContent = prismaContent + content;
-    });
+    for (const schemaFileGlob of prismaSchemaInputFiles) {
+      const schemaFiles = await new Promise<string[]>((resolve, reject) => {
+        glob(schemaFileGlob, (err, files) => {
+          if (err) {
+            reject(err)
+          }
+
+          resolve(files)
+        })
+      })
+
+      schemaFiles.forEach((schemaFile: string) => {
+        const content = readFileSync(schemaFile, 'utf8');
+        prismaContent = prismaContent + content;
+      })
+    }
 
     Object.entries(prismaSchemaMixinFiles).forEach(([key, filePath]) => {
       // find key and replace with content from value
@@ -88,7 +101,7 @@ const bootstrap = () => {
     }
 
     console.log(`Done processing app ${app}`);
-  });
+  };
 };
 
 bootstrap();

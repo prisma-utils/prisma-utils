@@ -10,12 +10,16 @@
     "prismerge": "./src/bin/prismerge.js"
   },
   "dependencies": {
-    "pluralize": "8.0.0",
-    "lodash": "4.17.21"
+    "glob": "^8.0.3",
+    "lodash": "4.17.21",
+    "pluralize": "8.0.0"
   },
   "author": {
     "name": "Johannes Schobel",
     "email": "johannes.schobel@googlemail.com",
     "url": "https://github.com/johannesschobel"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0"
   }
 }
