@@ -9,11 +9,6 @@
   "bin": {
     "prismerge": "./src/bin/prismerge.js"
   },
-  "dependencies": {
-    "glob": "8.0.3",
-    "lodash": "4.17.21",
-    "pluralize": "8.0.0"
-  },
   "author": {
     "name": "Johannes Schobel",
     "email": "johannes.schobel@googlemail.com",
