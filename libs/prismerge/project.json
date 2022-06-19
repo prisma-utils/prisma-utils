@@ -34,7 +34,7 @@
             "output": "."
           }
         ],
-        "buildableProjectDepsInPackageJsonType": "dependencies"
+        "buildableProjectDepsInPackageJsonType": "peerDependencies"
       }
     },
     "lint": {
