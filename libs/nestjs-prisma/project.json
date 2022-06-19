@@ -9,7 +9,8 @@
         "tsConfig": "libs/nestjs-prisma/tsconfig.lib.json",
         "packageJson": "libs/nestjs-prisma/package.json",
         "main": "libs/nestjs-prisma/src/index.ts",
-        "assets": ["libs/nestjs-prisma/*.md"]
+        "assets": ["libs/nestjs-prisma/*.md"],
+        "buildableProjectDepsInPackageJsonType": "dependencies"
       }
     },
     "lint": {
