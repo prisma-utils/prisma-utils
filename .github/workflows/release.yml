@@ -28,12 +28,12 @@ jobs:
       - name: Run Prisma Generate
         run: npx prisma generate
 
-      - name: Build release scripts
+      - name: Build packages
         uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: build
           parallel: 'true'
-          projects: nestjs-prisma,prismerge
+          projects: nestjs-prisma,prismerge,request-parser
 
       - name: Release
         uses: mansagroup/nrwl-nx-action@v2.1.0
