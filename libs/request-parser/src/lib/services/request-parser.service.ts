@@ -16,8 +16,6 @@ const defaultRequestQueryOptions: RequestQueryOptions = {
 
   orderParamName: 'sort',
   orderDefaultValue: 'id',
-
-  selectParamName: 'filter',
 };
 
 export class RequestParserService {
@@ -48,7 +46,6 @@ export class RequestParserService {
       skip: this.calculateSkip(page, limit),
       take: limit,
       sort: sort,
-      select: {},
     };
   }
 

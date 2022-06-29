@@ -1,4 +1,8 @@
 import { Controller, Get } from '@nestjs/common';
+import {
+  ParsedQueryModel,
+  RequestParser,
+} from '@prisma-utils/nestjs-request-parser';
 
 import { AppService } from './app.service';
 
@@ -7,7 +11,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getData() {
+  getData(@RequestParser() foo: ParsedQueryModel) {
     return this.appService.getData();
   }
 }

@@ -8,6 +8,4 @@ export interface RequestQueryOptions {
 
   orderParamName: string;
   orderDefaultValue: string;
-
-  selectParamName: string;
 }
