@@ -4,6 +4,7 @@
     "api": "apps/api",
     "nestjs-prisma": "libs/nestjs-prisma",
     "prismerge": "libs/prismerge",
-    "prismerge-e2e": "apps/prismerge-e2e"
+    "prismerge-e2e": "apps/prismerge-e2e",
+    "request-parser": "libs/request-parser"
   }
 }
