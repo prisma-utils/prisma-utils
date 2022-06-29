@@ -1,6 +1,33 @@
 # Request-Parser
 
-## Query Parameter Schema
+This package allows for automatically parsing query parameters and map them to a `prisma` compatible format to be automatically appended to `FindMany` calls.
+
+## Usage
+
+First, you need to add the decorator to a method in your controller.
+
+```ts
+@Controller()
+export class UserController {
+  constructor(private readonly userService: UserService) {}
+
+  @Get()
+  getAll(@RequestParser() requestParams: ParsedQueryModel) {
+    console.log(requestParams);
+    return this.userService.getAll(requestParams);
+  }
+}
+```
+
+Then call the route as follows:
+
+```bash
+example.com/api/users?sort=-id,name&limit=20&page=5
+```
+
+will return 20 entries from the 5th page (i.e., entry 81 - 100). Entries are ordered by id (descending) and name (ascending).
+
+### Query Parameter Schema
 
 | name  | description                                                                                                                                | default |
 | ----- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
@@ -8,15 +35,7 @@
 | limit | `limit` the result to a specific number of entries. Provides the possibility to set a maximum value as well                                | 20      |
 | page  | describe the page that should be retrieved (use in combination with `limit`)                                                               | 1       |
 
-This example URI
-
-```bash
-example.com?sort=-id,name&limit=20&page=5
-```
-
-will return 20 entries from the 5th page (i.e., entry 81 - 100). Entries are ordered by id (descending) and name (ascending).
-
-## Default Configuration
+### Default Configuration
 
 ```json
 {
