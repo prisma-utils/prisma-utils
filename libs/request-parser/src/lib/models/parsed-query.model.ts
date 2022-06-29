@@ -3,7 +3,6 @@ export interface ParsedQueryModel {
   skip: number;
   take: number;
   sort: ParsedQuerySortModel[];
-  select: ParsedQuerySelectModel | undefined;
 }
 
 export interface ParsedQuerySortModel {

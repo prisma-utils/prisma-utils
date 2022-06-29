@@ -11,20 +11,9 @@
         "tsConfig": "libs/request-parser/tsconfig.lib.json",
         "packageJson": "libs/request-parser/package.json",
         "main": "libs/request-parser/src/index.ts",
-        "assets": ["libs/request-parser/*.md"]
+        "assets": ["libs/request-parser/*.md"],
+        "buildableProjectDepsInPackageJsonType": "dependencies"
       }
-    },
-    "publish": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "command": "node tools/scripts/publish.mjs request-parser {args.ver} {args.tag}"
-      },
-      "dependsOn": [
-        {
-          "projects": "self",
-          "target": "build"
-        }
-      ]
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
@@ -40,6 +29,9 @@
         "jestConfig": "libs/request-parser/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "release": {
+      "executor": "@ng-easy/builders:semantic-release"
     }
   },
   "tags": []

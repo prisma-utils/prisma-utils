@@ -1,5 +1,13 @@
 {
   "name": "@prisma-utils/nestjs-request-parser",
   "version": "0.0.1",
-  "type": "commonjs"
+  "type": "commonjs",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "Johannes Schobel",
+    "email": "johannes.schobel@googlemail.com",
+    "url": "https://github.com/johannesschobel"
+  }
 }
