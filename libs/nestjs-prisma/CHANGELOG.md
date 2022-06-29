@@ -1,3 +1,21 @@
+## [1.5.2](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.5.1...@prisma-utils/nestjs-prisma@1.5.2) (2022-06-19)
+
+
+### :bug: Bug Fixes
+
+* add deps ([3d3cc61](https://github.com/prisma-utils/prisma-utils/commit/3d3cc617092f4b964435b8986c95ab912ebfaa2d))
+* add deps ([49598bb](https://github.com/prisma-utils/prisma-utils/commit/49598bb166a3f8cd6168e03de203e503097b5b81))
+* change to peerdependencies ([332211e](https://github.com/prisma-utils/prisma-utils/commit/332211e7269b4db0388e7ed9387af10db3212596))
+
+## [1.5.2](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.5.1...@prisma-utils/nestjs-prisma@1.5.2) (2022-06-19)
+
+
+### :bug: Bug Fixes
+
+* add deps ([3d3cc61](https://github.com/prisma-utils/prisma-utils/commit/3d3cc617092f4b964435b8986c95ab912ebfaa2d))
+* add deps ([49598bb](https://github.com/prisma-utils/prisma-utils/commit/49598bb166a3f8cd6168e03de203e503097b5b81))
+* change to peerdependencies ([332211e](https://github.com/prisma-utils/prisma-utils/commit/332211e7269b4db0388e7ed9387af10db3212596))
+
 ## [1.5.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.5.0...@prisma-utils/nestjs-prisma@1.5.1) (2022-06-17)
 
 
