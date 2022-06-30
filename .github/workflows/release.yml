@@ -37,6 +37,7 @@ jobs:
         with:
           targets: build
           affected: 'false'
+          all: 'false'
           projects: ${{ matrix.projects }}
 
       - name: Release
@@ -44,6 +45,7 @@ jobs:
         with:
           targets: release
           affected: 'false'
+          all: 'false'
           projects: ${{ matrix.projects }}
         env:
           CI: true
