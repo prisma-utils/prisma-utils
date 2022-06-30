@@ -7,6 +7,10 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        projects: [prismerge, nestjs-prisma, request-parser]
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -32,14 +36,15 @@ jobs:
         uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: build
-          parallel: 'true'
-          projects: nestjs-prisma,prismerge,request-parser
+          affected: 'false'
+          projects: ${{ matrix.projects }}
 
       - name: Release
         uses: mansagroup/nrwl-nx-action@v2.1.0
         with:
           targets: release
           affected: 'false'
+          projects: ${{ matrix.projects }}
         env:
           CI: true
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
