@@ -12,6 +12,13 @@
 
 * try matrix ([bacd50e](https://github.com/prisma-utils/prisma-utils/commit/bacd50e292a817c65bb506169360ae51dc57a7fc))
 
+## [1.6.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.6.0...@prisma-utils/nestjs-prisma@1.6.1) (2022-06-30)
+
+
+### :bug: Bug Fixes
+
+* try matrix ([bacd50e](https://github.com/prisma-utils/prisma-utils/commit/bacd50e292a817c65bb506169360ae51dc57a7fc))
+
 # [1.6.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.5.2...@prisma-utils/nestjs-prisma@1.6.0) (2022-06-30)
 
 
