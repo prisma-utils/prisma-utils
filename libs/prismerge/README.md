@@ -203,7 +203,7 @@ npx nx generate @prisma-utils/prismerge:add-mixin --help
 
 ## Pro Tips
 
-You can also use a custom npm-script to align these commands, like so:
+You can also use a custom `npm` script to align these commands, like so:
 
 ```json
 // in your package.json
