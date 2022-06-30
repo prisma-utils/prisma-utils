@@ -34,10 +34,10 @@ jobs:
         run: npx prisma generate
 
       - name: Build Package
-        run: nx run build ${{ matrix.project}}
+        run: npx nx run ${{ matrix.project}}:build
 
       - name: Release Package
-        run: nx run release ${{ matrix.project }}
+        run: npx nx run ${{ matrix.project }}:release
         env:
           CI: true
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
