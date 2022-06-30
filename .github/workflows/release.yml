@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          persist-credentials: false # Needed so that semantic release can use the admin token
+          persist-credentials: false
 
       - name: Fetch latest base branch
         run: git fetch origin main
@@ -33,20 +33,23 @@ jobs:
       - name: Run Prisma Generate
         run: npx prisma generate
 
-      - name: Build packages
-        uses: mansagroup/nrwl-nx-action@v2
-        with:
-          targets: build
-          all: 'false'
-          projects: ${{ matrix.projects }}
+      - name: Build Package
+        run: npx nx build ${{ matrix.project}}
 
-      - name: Release
-        uses: mansagroup/nrwl-nx-action@v2.1.0
-        with:
-          targets: release
-          all: 'false'
-          projects: ${{ matrix.projects }}
+      - name: Release Package
+        run: npx nx release ${{ matrix.project }}
         env:
           CI: true
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      # - name: Release
+      #   uses: mansagroup/nrwl-nx-action@v2.1.0
+      #   with:
+      #     targets: release
+      #     all: 'false'
+      #     projects: ${{ matrix.projects }}
+      #   env:
+      #     CI: true
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
