@@ -60,6 +60,7 @@ const bootstrap = () => {
   // now we have everything ready
   const prisMergeContent = JSON.parse(readFileSync(inputPath, 'utf8'));
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Object.entries(prisMergeContent).forEach(([app, content]: [string, any]) => {
     console.log(`Processing app: ${app}...`);
     const prismaSchemaInputFiles = content.inputs || [];
