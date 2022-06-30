@@ -36,7 +36,6 @@ jobs:
         uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: build
-          affected: 'false'
           all: 'false'
           projects: ${{ matrix.projects }}
 
@@ -44,7 +43,6 @@ jobs:
         uses: mansagroup/nrwl-nx-action@v2.1.0
         with:
           targets: release
-          affected: 'false'
           all: 'false'
           projects: ${{ matrix.projects }}
         env:
