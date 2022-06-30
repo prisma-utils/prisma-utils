@@ -1,4 +1,4 @@
-export interface AddMixinGeneratorSchema {
+export interface AddFragmentGeneratorSchema {
   name: string;
   library: string;
   directory: string;

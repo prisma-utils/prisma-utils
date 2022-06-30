@@ -7,19 +7,22 @@ import {
   updateJson,
 } from '@nrwl/devkit';
 import * as path from 'path';
-import { AddMixinGeneratorSchema } from './schema';
+import { AddFragmentGeneratorSchema } from './schema';
 import { set, defaultsDeep } from 'lodash';
 import { prismergeFileAppStub } from '../../ui/prismerge.stub';
 
-export default async function (tree: Tree, options: AddMixinGeneratorSchema) {
-  const mixin = names(options.name).fileName;
-  const mixinName = names(options.name).className;
+export default async function (
+  tree: Tree,
+  options: AddFragmentGeneratorSchema,
+) {
+  const fragment = names(options.name).fileName;
+  const fragmentName = names(options.name).className;
 
   const templateSchema = {
     ...options,
     ...names(options.name),
-    mixin,
-    mixinName,
+    fragment: fragment,
+    fragmentName: fragmentName,
     template: '',
   };
 
@@ -42,9 +45,9 @@ export default async function (tree: Tree, options: AddMixinGeneratorSchema) {
       defaultsDeep(content[options.app], prismergeFileAppStub),
     );
 
-    content[options.app].mixins = {
-      ...content[options.app].mixins,
-      ...{ [mixin]: `${modelRoot}/${options.name}.prisma.mixin` },
+    content[options.app].fragments = {
+      ...content[options.app].fragments,
+      ...{ [fragment]: `${modelRoot}/${options.name}.prisma.fragment` },
     };
 
     return content;

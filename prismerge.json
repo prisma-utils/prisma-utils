@@ -5,22 +5,22 @@
       "./apps/api/src/prisma/user.prisma",
       "./apps/api/src/prisma/article.prisma"
     ],
-    "mixins": {
-      "id": "./apps/api/src/prisma/mixins/id.prisma.mixin"
+    "fragments": {
+      "id": "./apps/api/src/prisma/fragments/id.prisma.fragment"
     },
     "output": "./prisma/schema.prisma"
   },
   "app2": {
     "inputs": ["./apps/api/src/prisma/base.prisma"],
-    "mixins": {
-      "id": "./apps/api/src/prisma/mixins/id.prisma.mixin"
+    "fragments": {
+      "id": "./apps/api/src/prisma/fragments/id.prisma.fragment"
     },
     "output": "./prisma/app2.prisma"
   },
   "glob": {
     "inputs": ["./apps/**/prisma/*.prisma"],
-    "mixins": {
-      "id": "./apps/api/src/prisma/mixins/id.prisma.mixin"
+    "fragments": {
+      "id": "./apps/api/src/prisma/fragments/id.prisma.fragment"
     },
     "output": "./prisma/glob.prisma"
   }

@@ -1,6 +1,6 @@
 export const prismergeFileAppStub = {
   inputs: [],
-  mixins: {},
+  fragments: {},
   output: '',
 };
 

@@ -1,12 +1,12 @@
 import { Tree } from '@nrwl/devkit';
 
 import generator from './generator';
-import { AddMixinGeneratorSchema } from './schema';
-import { createTreeWithLibrary } from './../../helpers/testing';
+import { AddFragmentGeneratorSchema } from './schema';
+import { createTreeWithLibrary } from '../../helpers/testing';
 
 describe('add-model generator', () => {
   let appTree: Tree;
-  const options: AddMixinGeneratorSchema = {
+  const options: AddFragmentGeneratorSchema = {
     name: 'test',
     directory: 'test',
     library: 'test',

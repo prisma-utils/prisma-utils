@@ -22,7 +22,7 @@ to create a default `prismerge.json` configuration file. This file looks like th
 {
   "app": {
     "inputs": [],
-    "mixins": {},
+    "fragments": {},
     "output": ""
   }
 }
@@ -105,11 +105,11 @@ This will, for example, find the `prisma` files in
 
 See the [glob docs](https://github.com/isaacs/node-glob) for more ideas, how this can be used.
 
-## Mixins
+## Fragments
 
-PrisMerge also allows for defining `Mixins`, that can be inserted into models. These Mixins can be used to define reoccurring field definitions, like the description for `id` fields.
+PrisMerge also allows for defining `Fragments`, that can be inserted into models. These Fragments can be used to define reoccurring field definitions, like the description for `id` fields.
 
-Consider the following example for a `mixin` file:
+Consider the following example for a `fragent` file:
 
 ```bash
   id String @id @default(uuid())
@@ -121,19 +121,19 @@ This information will be used over and over again in all your models.
 
 Unfortunately, Prisma itself [does not provide a suitable mechanism for extending / inheriting a base model](https://github.com/prisma/prisma/issues/2377).
 
-With PrisMerge you can link to `*.prisma.mixin` files. Mixin placeholders are then replaced during the merge-process with the actual content of these files.
+With PrisMerge you can link to `*.prisma.fragment` files. Fragment placeholders are then replaced during the merge-process with the actual content of these files.
 
-First, define your mixin as follows:
+First, define your fragment as follows:
 
 ```bash
-# File: ./my/custom/path/id.prisma.mixin
+# File: ./my/custom/path/id.prisma.fragment
 
 id String @id @default(uuid())
 createdAt DateTime @default(now())
 updatedAt DateTime @updatedAt
 ```
 
-Second, add the mixin to your `prismerge.json` file as follows and assign a proper key (i.e., `id` in this example).
+Second, add the fragment to your `prismerge.json` file as follows and assign a proper key (i.e., `id` in this example).
 
 ```json
 {
@@ -143,8 +143,8 @@ Second, add the mixin to your `prismerge.json` file as follows and assign a prop
       "./libs/user/prisma/user.prisma",
       "./libs/article/prisma/article.prisma"
     ],
-    "mixins": {
-      "id": "./my/custom/path/id.prisma.mixin"
+    "fragments": {
+      "id": "./my/custom/path/id.prisma.fragment"
     },
     "output": "./prisma/schema.prisma"
   }
@@ -157,7 +157,7 @@ Finally, add the placeholder to your model files, like so:
 # File: ./libs/user/prisma/user.prisma
 
 model User {
-  __id__
+  ...id
 
   // additional fields
   email    String @unique
@@ -191,14 +191,14 @@ This library also provides nrwl/nx generators that can be used to
 
 - init prismerge
 - add a new model to the prismerge file
-- add a new mixin to the prismerge file
+- add a new fragment to the prismerge file
 
 Respective generators can be easily called via the Nx VSCode Extension or via cli. More information are provided within the description of the generators via
 
 ```bash
 npx nx generate @prisma-utils/prismerge:init --help
 npx nx generate @prisma-utils/prismerge:add-model --help
-npx nx generate @prisma-utils/prismerge:add-mixin --help
+npx nx generate @prisma-utils/prismerge:add-fragment --help
 ```
 
 ## Pro Tips

@@ -63,7 +63,7 @@ const bootstrap = () => {
   Object.entries(prisMergeContent).forEach(([app, content]: [string, any]) => {
     console.log(`Processing app: ${app}...`);
     const prismaSchemaInputFiles = content.inputs || [];
-    const prismaSchemaMixinFiles = content.mixins || {};
+    const prismaSchemaFragmentFiles = content.fragments || {};
     const prismaSchemaOutputFile = content.output;
 
     let prismaContent = '';
@@ -80,7 +80,7 @@ const bootstrap = () => {
       });
     });
 
-    Object.entries(prismaSchemaMixinFiles).forEach(([key, filePath]) => {
+    Object.entries(prismaSchemaFragmentFiles).forEach(([key, filePath]) => {
       // find key and replace with content from value
       const content = readFileSync(filePath as string, 'utf8');
       const regEx = new RegExp(`__${key}__`, 'g');

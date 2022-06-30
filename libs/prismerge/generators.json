@@ -13,10 +13,10 @@
       "schema": "./src/generators/add-model/schema.json",
       "description": "Add a new Prisma Model to PrisMerge File"
     },
-    "add-mixin": {
-      "factory": "./src/generators/add-mixin/generator",
-      "schema": "./src/generators/add-mixin/schema.json",
-      "description": "Add a new Mixin to the PrisMerge File"
+    "add-fragment": {
+      "factory": "./src/generators/add-fragment/generator",
+      "schema": "./src/generators/add-fragment/schema.json",
+      "description": "Add a new Fragment to the PrisMerge File"
     }
   }
 }

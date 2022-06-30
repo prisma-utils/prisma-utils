@@ -1,13 +1,13 @@
 {
   "$schema": "http://json-schema.org/schema",
   "cli": "nx",
-  "$id": "AddMixin",
+  "$id": "AddFragment",
   "title": "",
   "type": "object",
   "properties": {
     "name": {
       "type": "string",
-      "description": "Name of the Mixin to be generated.",
+      "description": "Name of the Fragment to be generated.",
       "$default": {
         "$source": "argv",
         "index": 0
@@ -20,13 +20,13 @@
       "$default": {
         "$source": "projectName"
       },
-      "x-prompt": "What is the name of the library for this mixin?"
+      "x-prompt": "What is the name of the library for this fragment?"
     },
     "directory": {
       "type": "string",
-      "description": "A directory where the mixin is created.",
+      "description": "A directory where the fragment is created.",
       "alias": "dir",
-      "x-prompt": "In which subdirectory should the mixin be created?"
+      "x-prompt": "In which subdirectory should the fragment be created?"
     },
     "app": {
       "type": "string",
