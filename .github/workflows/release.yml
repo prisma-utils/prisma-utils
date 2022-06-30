@@ -39,8 +39,6 @@ jobs:
         uses: mansagroup/nrwl-nx-action@v2.1.0
         with:
           targets: release
-          parallel: 'false'
-          all: 'true'
           affected: 'false'
         env:
           CI: true
