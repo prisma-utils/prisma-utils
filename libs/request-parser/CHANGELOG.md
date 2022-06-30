@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-request-parser@1.0.0...@prisma-utils/nestjs-request-parser@1.0.1) (2022-06-30)
+
+
+### :bug: Bug Fixes
+
+* try matrix ([bacd50e](https://github.com/prisma-utils/prisma-utils/commit/bacd50e292a817c65bb506169360ae51dc57a7fc))
+
 # 1.0.0 (2022-06-30)
 
 
