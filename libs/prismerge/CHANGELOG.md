@@ -1,3 +1,15 @@
+## [1.5.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.5.0...@prisma-utils/prismerge@1.5.1) (2022-06-30)
+
+
+### :bug: Bug Fixes
+
+* trigger release ([8dd0e2d](https://github.com/prisma-utils/prisma-utils/commit/8dd0e2d26d061e552295b11dc141aa912e721218))
+
+
+### :memo: Documentation
+
+* minor change ([7712302](https://github.com/prisma-utils/prisma-utils/commit/77123024ce4bab74f05058156c6c60f401754dd3))
+
 # [1.5.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.4.0...@prisma-utils/prismerge@1.5.0) (2022-06-30)
 
 
