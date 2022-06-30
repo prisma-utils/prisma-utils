@@ -5,6 +5,13 @@
 
 * build process ([0c2f2de](https://github.com/prisma-utils/prisma-utils/commit/0c2f2de1909cc1cd8bc56f2750881e6ee2a15d93))
 
+## [1.4.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.4.0...@prisma-utils/prismerge@1.4.1) (2022-06-30)
+
+
+### :bug: Bug Fixes
+
+* build process ([0c2f2de](https://github.com/prisma-utils/prisma-utils/commit/0c2f2de1909cc1cd8bc56f2750881e6ee2a15d93))
+
 # [1.4.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.3.2...@prisma-utils/prismerge@1.4.0) (2022-06-29)
 
 
