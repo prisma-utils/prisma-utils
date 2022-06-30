@@ -157,7 +157,7 @@ Finally, add the placeholder to your model files, like so:
 # File: ./libs/user/prisma/user.prisma
 
 model User {
-  ...id
+  __id__
 
   // additional fields
   email    String @unique
