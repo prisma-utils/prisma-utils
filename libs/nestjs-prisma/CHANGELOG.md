@@ -1,3 +1,21 @@
+# [1.6.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.5.2...@prisma-utils/nestjs-prisma@1.6.0) (2022-06-30)
+
+
+### :bug: Bug Fixes
+
+* build process ([0c2f2de](https://github.com/prisma-utils/prisma-utils/commit/0c2f2de1909cc1cd8bc56f2750881e6ee2a15d93))
+
+
+### :memo: Documentation
+
+* update docs ([0827ffa](https://github.com/prisma-utils/prisma-utils/commit/0827ffa16b62e57ca01ed4f72c61e8684333bbba))
+* update readme file ([b90f6fd](https://github.com/prisma-utils/prisma-utils/commit/b90f6fddb085f7acdf749479bdaa55b78078114e))
+
+
+### :sparkles: Features
+
+* add new lib ([85af572](https://github.com/prisma-utils/prisma-utils/commit/85af5727b53d129036ee8265f2a0eab1fcf7ab30))
+
 # [1.6.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.5.2...@prisma-utils/nestjs-prisma@1.6.0) (2022-06-29)
 
 
