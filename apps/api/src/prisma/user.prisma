@@ -1,5 +1,5 @@
 model User {
-  __id__
+  ...id
 
   name String
   articles Article[]

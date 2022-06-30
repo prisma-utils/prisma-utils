@@ -1,5 +1,5 @@
 model Article {
-  __id__
+  ...id
 
   title String
   text  String

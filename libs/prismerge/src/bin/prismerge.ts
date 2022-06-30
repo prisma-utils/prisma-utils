@@ -83,7 +83,7 @@ const bootstrap = () => {
     Object.entries(prismaSchemaFragmentFiles).forEach(([key, filePath]) => {
       // find key and replace with content from value
       const content = readFileSync(filePath as string, 'utf8');
-      const regEx = new RegExp(`__${key}__`, 'g');
+      const regEx = new RegExp(`[.]{3}${key}`, 'g');
       prismaContent = prismaContent.replace(regEx, content);
     });
 
