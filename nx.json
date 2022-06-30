@@ -22,11 +22,7 @@
     }
   },
   "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
+    "build": [{ "target": "build", "projects": "dependencies" }],
+    "release": [{ "target": "release", "projects": "dependencies" }]
   }
 }
