@@ -53,7 +53,12 @@
       }
     },
     "release": {
-      "executor": "@ng-easy/builders:semantic-release"
+      "executor": "@ng-easy/builders:semantic-release",
+      "configurations": {
+        "local": {
+          "force": true
+        }
+      }
     }
   },
   "tags": []
