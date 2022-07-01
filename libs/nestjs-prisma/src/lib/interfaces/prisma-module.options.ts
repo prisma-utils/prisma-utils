@@ -3,7 +3,7 @@ import { Prisma } from '@prisma/client';
 
 export interface PrismaModuleOptions {
   /**
-   * If "true", registers `PrismaModule` as a global module.
+   * If true, registers `PrismaModule` as a global module.
    * See: https://docs.nestjs.com/modules#global-modules
    */
   isGlobal?: boolean;
@@ -18,7 +18,7 @@ export interface PrismaServiceOptions {
   prismaOptions?: Prisma.PrismaClientOptions;
 
   /**
-   * If "true", `PrismaClient` explicitly creates a connection pool and your first query will respond instantly.
+   * If true, `PrismaClient` explicitly creates a connection pool and your first query will respond instantly.
    *
    * For most use cases the lazy connect behavior of `PrismaClient` will do. The first query of `PrismaClient` creates the connection pool.
    * See: https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/connection-management

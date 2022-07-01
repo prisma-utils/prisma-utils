@@ -27,7 +27,7 @@ const bootstrap = () => {
       'Path to the PrisMerge File, relative to the current working directory.',
       './prismerge.json',
     )
-    .option('-g, --generate', 'Generate a default file first.')
+    .option('-g, --generate', 'Generate an initial default file first.')
     .option('-nF, --no-format', 'Format the Prisma File after generation.')
     .parse(process.argv);
 
