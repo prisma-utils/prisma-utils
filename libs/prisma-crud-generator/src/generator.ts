@@ -1,32 +1,32 @@
 import { generatorHandler, GeneratorOptions } from '@prisma/generator-helper';
 import { logger } from '@prisma/sdk';
-import * as path from 'path';
-import { GENERATOR_NAME } from './constants';
-import { defaultCrudServiceStub } from './stubs/crud.service.stub';
-import {
-  CompilerOptions,
-  ExportDeclarationStructure,
-  ModuleKind,
-  OptionalKind,
-  Project,
-  ScriptTarget,
-  SourceFile,
-} from 'ts-morph';
-import { promises as fs } from 'fs';
+import { DTO_TYPE, GENERATOR_NAME } from './constants';
+import { CrudServiceGenerator } from './generators/crud.service.generator';
+import { DtoGenerator } from './generators/dto.generator';
+import { GeneratorInterface } from './interfaces/generator.interface';
+import { version } from './../package.json';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { version } = require('./../package.json');
+const defaultOptions: GeneratorInterface = {
+  useStrict: 'false',
+  dryRun: 'false',
 
-const defaultConfig = {
-  stubfolder: './stubs',
-  barrelFile: true,
-};
+  schemaPath: '',
 
-const baseCompilerOptions: CompilerOptions = {
-  target: ScriptTarget.ES2019,
-  module: ModuleKind.CommonJS,
-  emitDecoratorMetadata: true,
-  experimentalDecorators: true,
+  DTOPath: 'data/dtos',
+  DTOCreatePrefix: 'Create',
+  DTOCreateParentClass: undefined,
+  DTOCreateParentClassPath: undefined,
+
+  DTOUpdatePrefix: 'Update',
+  DTOUpdateParentClass: undefined,
+  DTOUpdateParentClassPath: undefined,
+
+  DTOSuffix: 'Dto',
+  DTOValidatorPackage: '@nestjs/class-validator',
+
+  CRUDServicePath: 'services',
+  CRUDServiceSuffix: 'CrudService',
+  CRUDStubFile: undefined,
 };
 
 generatorHandler({
@@ -34,84 +34,78 @@ generatorHandler({
     logger.info(`${GENERATOR_NAME}:Registered`);
     return {
       version,
-      defaultOutput: './../crud-services',
+      defaultOutput: '../generated',
       prettyName: GENERATOR_NAME,
     };
   },
   onGenerate: async (options: GeneratorOptions) => {
-    const project = new Project({
-      compilerOptions: {
-        ...baseCompilerOptions,
-        ...{ declaration: true },
-      },
-    });
+    const configOverwrites = {
+      schemaPath: options.schemaPath,
+    };
 
-    const stubFile = options.generator.config?.['stubFile'];
+    const config: GeneratorInterface = {
+      ...defaultOptions,
+      ...options.generator.config,
+      ...configOverwrites,
+    };
 
-    const outputPath = path.join(options.generator.output?.value as string);
-
-    let crudServiceStubContent: string;
-    if (stubFile) {
-      logger.info(`Loading Stubs from ${stubFile}`);
-      const customStub = await fs.readFile(
-        path.join(options.schemaPath, stubFile),
-        { encoding: 'utf-8' },
-      );
-      crudServiceStubContent = customStub.toString();
-    } else {
-      crudServiceStubContent = defaultCrudServiceStub;
-    }
-
-    const serviceFileNames: string[] = [];
-
-    options.dmmf.datamodel.models.forEach(async (model) => {
+    for (const model of options.dmmf.datamodel.models) {
       logger.info(`Processing Model ${model.name}`);
 
-      let serviceContent = crudServiceStubContent;
-      serviceContent = serviceContent.replace(/__Class__/g, model.name);
-      serviceContent = serviceContent.replace(
-        /__class__/g,
-        model.name.toLowerCase(),
+      const outputBasePath =
+        options.generator.output?.value.replace(
+          /#{MODEL}/g,
+          model.name.toLowerCase(),
+        ) + '';
+
+      // ----------------------------------------
+      // generate CRUD Service
+      const crudServiceName = `${model.name}${config.CRUDServiceSuffix}`;
+      const crudServiceGenerator = new CrudServiceGenerator(
+        config,
+        model,
+        crudServiceName,
+      );
+      const crudServiceContent = await crudServiceGenerator.generateContent();
+      await crudServiceGenerator.writeToFile(
+        outputBasePath,
+        crudServiceContent,
+      );
+      // ----------------------------------------
+
+      // ----------------------------------------
+      // generate CREATE DTOs
+      const dtoCreateClassName = `${config.DTOCreatePrefix}${model.name}${config.DTOSuffix}`;
+      const dtoCreateGenerator = new DtoGenerator(
+        config,
+        model,
+        dtoCreateClassName,
+      );
+      const dtoCreateContent = await dtoCreateGenerator.generateContent(
+        DTO_TYPE.CREATE,
+      );
+      await dtoCreateGenerator.writeToFile(
+        DTO_TYPE.CREATE,
+        outputBasePath,
+        dtoCreateContent,
       );
 
-      // write to output
-      const outputFileName = `${model.name.toLowerCase()}.crud.service`;
-      const outputFileWithExtension = `${outputFileName}.ts`;
-
-      project.createSourceFile(
-        path.join(outputPath, outputFileWithExtension),
-        serviceContent,
-        { overwrite: true },
+      // generate Update DTOs
+      const dtoUpdateClassName = `${config.DTOUpdatePrefix}${model.name}${config.DTOSuffix}`;
+      const dtoUpdateGenerator = new DtoGenerator(
+        config,
+        model,
+        dtoUpdateClassName,
       );
-
-      serviceFileNames.push(outputFileName);
-    });
-
-    const barrelFile =
-      options.generator.config?.['barrelfile'] || defaultConfig.barrelFile;
-
-    if (barrelFile) {
-      logger.info('Creating Barrel File');
-
-      const barrelFilePath = path.join(outputPath, 'index.ts');
-
-      const barrelFile = project.createSourceFile(barrelFilePath, undefined, {
-        overwrite: true,
-      });
-
-      createBarrelFile(barrelFile, serviceFileNames);
+      const dtoUpdateContent = await dtoUpdateGenerator.generateContent(
+        DTO_TYPE.UPDATE,
+      );
+      await dtoUpdateGenerator.writeToFile(
+        DTO_TYPE.UPDATE,
+        outputBasePath,
+        dtoUpdateContent,
+      );
+      // ----------------------------------------
     }
-
-    project.save();
   },
 });
-
-function createBarrelFile(sourceFile: SourceFile, serviceNames: string[]) {
-  sourceFile.addExportDeclarations(
-    serviceNames
-      .sort()
-      .map<OptionalKind<ExportDeclarationStructure>>((serviceName) => ({
-        moduleSpecifier: `./${serviceName}`,
-      })),
-  );
-}
