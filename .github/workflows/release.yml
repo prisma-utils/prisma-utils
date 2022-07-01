@@ -1,16 +1,11 @@
 name: Release
 on:
-  workflow_dispatch: # manual release
+  workflow_dispatch:
 
 jobs:
   npm:
     name: Release
     runs-on: ubuntu-latest
-
-    strategy:
-      max-parallel: 1
-      matrix:
-        projects: [prismerge, nestjs-prisma, request-parser]
 
     steps:
       - name: Checkout repo
@@ -33,23 +28,18 @@ jobs:
       - name: Run Prisma Generate
         run: npx prisma generate
 
-      - name: Build Package
-        run: npx nx run ${{ matrix.projects }}:build
+      - name: Build Projects
+        uses: mansagroup/nrwl-nx-action@v2.1.0
+        with:
+          targets: build
+          projects: prismerge,nestjs-prisma,request-parser
 
-      - name: Release Package
-        run: npx nx run ${{ matrix.projects }}:release
+      - name: Release Projects
+        uses: mansagroup/nrwl-nx-action@v2.1.0
+        with:
+          targets: release
+          affected: 'false'
         env:
           CI: true
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
-      # - name: Release
-      #   uses: mansagroup/nrwl-nx-action@v2.1.0
-      #   with:
-      #     targets: release
-      #     all: 'false'
-      #     projects: ${{ matrix.projects }}
-      #   env:
-      #     CI: true
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
