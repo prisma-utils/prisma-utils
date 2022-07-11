@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.5.2...@prisma-utils/prismerge@1.6.0) (2022-07-11)
+
+
+### :bug: Bug Fixes
+
+* get rid of logger ([b7d6a76](https://github.com/prisma-utils/prisma-utils/commit/b7d6a76de22315e56426f7fc23fe2ab02e38878b))
+
+
+### :sparkles: Features
+
+* prisma 4 ([7f3081b](https://github.com/prisma-utils/prisma-utils/commit/7f3081b5184770904dc1483d1714478c3bf19cc3))
+
 ## [1.5.2](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.5.1...@prisma-utils/prismerge@1.5.2) (2022-07-01)
 
 
