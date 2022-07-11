@@ -1,5 +1,4 @@
 import { generatorHandler, GeneratorOptions } from '@prisma/generator-helper';
-import { logger } from '@prisma/sdk';
 import * as path from 'path';
 import { GENERATOR_NAME } from './constants';
 import { defaultCrudServiceStub } from './stubs/crud.service.stub';
@@ -31,7 +30,7 @@ const baseCompilerOptions: CompilerOptions = {
 
 generatorHandler({
   onManifest() {
-    logger.info(`${GENERATOR_NAME}:Registered`);
+    console.log(`${GENERATOR_NAME}:Registered`);
     return {
       version,
       defaultOutput: './../crud-services',
@@ -52,7 +51,7 @@ generatorHandler({
 
     let crudServiceStubContent: string;
     if (stubFile) {
-      logger.info(`Loading Stubs from ${stubFile}`);
+      console.log(`Loading Stubs from ${stubFile}`);
       const customStub = await fs.readFile(
         path.join(options.schemaPath, stubFile),
         { encoding: 'utf-8' },
@@ -65,7 +64,7 @@ generatorHandler({
     const serviceFileNames: string[] = [];
 
     options.dmmf.datamodel.models.forEach(async (model) => {
-      logger.info(`Processing Model ${model.name}`);
+      console.log(`Processing Model ${model.name}`);
 
       let serviceContent = crudServiceStubContent;
       serviceContent = serviceContent.replace(/__Class__/g, model.name);
@@ -91,7 +90,7 @@ generatorHandler({
       options.generator.config?.['barrelfile'] || defaultConfig.barrelFile;
 
     if (barrelFile) {
-      logger.info('Creating Barrel File');
+      console.log('Creating Barrel File');
 
       const barrelFilePath = path.join(outputPath, 'index.ts');
 
