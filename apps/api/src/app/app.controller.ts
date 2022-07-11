@@ -14,4 +14,9 @@ export class AppController {
   getData(@RequestParser() foo: ParsedQueryModel) {
     return this.appService.getData();
   }
+
+  @Get('count')
+  getCount() {
+    return this.appService.getCount();
+  }
 }
