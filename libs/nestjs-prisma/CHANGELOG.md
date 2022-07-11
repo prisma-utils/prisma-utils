@@ -1,3 +1,19 @@
+# [1.8.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.7.0...@prisma-utils/nestjs-prisma@1.8.0) (2022-07-11)
+
+
+### :bug: Bug Fixes
+
+* get rid of logger ([b7d6a76](https://github.com/prisma-utils/prisma-utils/commit/b7d6a76de22315e56426f7fc23fe2ab02e38878b))
+* release script - again ([16e43cb](https://github.com/prisma-utils/prisma-utils/commit/16e43cb3acbe209df58d95e2b98b9dd3ca9eb192))
+* trigger release ([9869203](https://github.com/prisma-utils/prisma-utils/commit/986920360f71906bbdc988cc073cec7716b6eb68))
+* trigger release ([1c340df](https://github.com/prisma-utils/prisma-utils/commit/1c340df3723b0c1f8f68a130fa2e60bef84af969))
+* trigger release ([8dd0e2d](https://github.com/prisma-utils/prisma-utils/commit/8dd0e2d26d061e552295b11dc141aa912e721218))
+
+
+### :sparkles: Features
+
+* prisma 4 ([7f3081b](https://github.com/prisma-utils/prisma-utils/commit/7f3081b5184770904dc1483d1714478c3bf19cc3))
+
 # [1.7.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.6.1...@prisma-utils/nestjs-prisma@1.7.0) (2022-06-30)
 
 
