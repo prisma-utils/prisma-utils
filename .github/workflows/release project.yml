@@ -12,7 +12,7 @@ on:
 
 jobs:
   npm:
-    name: Release
+    name: Release ${{ github.event.inputs.project }}
     runs-on: ubuntu-latest
 
     steps:
