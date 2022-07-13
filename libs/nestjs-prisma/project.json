@@ -10,7 +10,7 @@
         "packageJson": "libs/nestjs-prisma/package.json",
         "main": "libs/nestjs-prisma/src/index.ts",
         "assets": ["libs/nestjs-prisma/*.md"],
-        "buildableProjectDepsInPackageJsonType": "peerDependencies"
+        "buildableProjectDepsInPackageJsonType": "dependencies"
       }
     },
     "lint": {
