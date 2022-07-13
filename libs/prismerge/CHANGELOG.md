@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.6.0...@prisma-utils/prismerge@1.6.1) (2022-07-13)
+
+
+### :bug: Bug Fixes
+
+* **prismerge:** use deps ([1b799ec](https://github.com/prisma-utils/prisma-utils/commit/1b799ec4946c6da72d5fc9825e91c56b3069a972))
+
 # [1.6.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.5.2...@prisma-utils/prismerge@1.6.0) (2022-07-11)
 
 
