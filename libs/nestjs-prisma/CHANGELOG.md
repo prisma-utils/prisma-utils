@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.8.0...@prisma-utils/nestjs-prisma@1.8.1) (2022-07-13)
+
+
+### :bug: Bug Fixes
+
+* **nestjs-prisma:** use deps ([c1956ce](https://github.com/prisma-utils/prisma-utils/commit/c1956ce9e398a78b64f1cd01fd44d24eb49445ff))
+
 # [1.8.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.7.0...@prisma-utils/nestjs-prisma@1.8.0) (2022-07-11)
 
 
