@@ -51,6 +51,23 @@ will return 20 entries from the 5th page (i.e., entry 81 - 100). Entries are ord
 }
 ```
 
+The default configuration can be overwritten when using the `Decorator`. For example, a custom sort order can be defined via
+
+```ts
+@Controller()
+export class UserController {
+  constructor(private readonly userService: UserService) {}
+
+  @Get()
+  getAll(
+    @RequestParser({ orderDefaultValue: '-createdAt,name' })
+    requestParams: ParsedQueryModel,
+  ) {
+    return this.userService.getAll(requestParams);
+  }
+}
+```
+
 This library was generated with [Nx](https://nx.dev).
 
 ## Building
