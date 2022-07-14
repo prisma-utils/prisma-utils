@@ -1,3 +1,29 @@
+# [1.1.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-request-parser@1.0.1...@prisma-utils/nestjs-request-parser@1.1.0) (2022-07-14)
+
+
+### :bug: Bug Fixes
+
+* get rid of logger ([b7d6a76](https://github.com/prisma-utils/prisma-utils/commit/b7d6a76de22315e56426f7fc23fe2ab02e38878b))
+* release script - again ([16e43cb](https://github.com/prisma-utils/prisma-utils/commit/16e43cb3acbe209df58d95e2b98b9dd3ca9eb192))
+* **request-parser:** pass options to decorator ([9f80d1e](https://github.com/prisma-utils/prisma-utils/commit/9f80d1ef32c64e9e8abeb78d27a668f8413cd2cb))
+* trigger release ([9869203](https://github.com/prisma-utils/prisma-utils/commit/986920360f71906bbdc988cc073cec7716b6eb68))
+* trigger release ([1c340df](https://github.com/prisma-utils/prisma-utils/commit/1c340df3723b0c1f8f68a130fa2e60bef84af969))
+* trigger release ([8dd0e2d](https://github.com/prisma-utils/prisma-utils/commit/8dd0e2d26d061e552295b11dc141aa912e721218))
+* update docs and trigger new version ([633944e](https://github.com/prisma-utils/prisma-utils/commit/633944e297f74bf9cbaa96abee119c07373a170f))
+* update release script ([9cc6541](https://github.com/prisma-utils/prisma-utils/commit/9cc65411aab268860b77b3218ed4aa7073980f37))
+
+
+### :memo: Documentation
+
+* minor change ([7712302](https://github.com/prisma-utils/prisma-utils/commit/77123024ce4bab74f05058156c6c60f401754dd3))
+* **request-parser:** update docs ([e623f05](https://github.com/prisma-utils/prisma-utils/commit/e623f0581146a21218d16db0fae19b826974de11))
+
+
+### :sparkles: Features
+
+* change to fragments ([df5ca66](https://github.com/prisma-utils/prisma-utils/commit/df5ca661e66f45b0841c7f03ac0e98890fbc65f8))
+* prisma 4 ([7f3081b](https://github.com/prisma-utils/prisma-utils/commit/7f3081b5184770904dc1483d1714478c3bf19cc3))
+
 ## [1.0.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-request-parser@1.0.0...@prisma-utils/nestjs-request-parser@1.0.1) (2022-06-30)
 
 
