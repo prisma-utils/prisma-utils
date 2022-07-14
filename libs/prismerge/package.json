@@ -1,6 +1,6 @@
 {
   "name": "@prisma-utils/prismerge",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "type": "commonjs",
   "main": "src/index.js",
   "generators": "./generators.json",

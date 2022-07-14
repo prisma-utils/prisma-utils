@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.6.1...@prisma-utils/prismerge@1.6.2) (2022-07-14)
+
+
+### :bug: Bug Fixes
+
+* **prismerge:** change to commonjs ([5387012](https://github.com/prisma-utils/prisma-utils/commit/53870126d05d14da406d13eaa16c1c046b4a65dc))
+
 ## [1.6.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.6.0...@prisma-utils/prismerge@1.6.1) (2022-07-13)
 
 
