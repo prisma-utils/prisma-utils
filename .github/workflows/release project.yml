@@ -9,6 +9,7 @@ on:
           - prismerge
           - nestjs-prisma
           - request-parser
+          - prisma-crud-generator
 
 jobs:
   npm:
