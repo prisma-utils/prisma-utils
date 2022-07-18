@@ -8,9 +8,11 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/prisma-crud-generator",
+        "packageJson": "libs/prisma-crud-generator/package.json",
         "main": "libs/prisma-crud-generator/src/index.ts",
         "tsConfig": "libs/prisma-crud-generator/tsconfig.lib.json",
-        "assets": ["libs/prisma-crud-generator/*.md"]
+        "assets": ["libs/prisma-crud-generator/*.md"],
+        "buildableProjectDepsInPackageJsonType": "dependencies"
       }
     },
     "publish": {

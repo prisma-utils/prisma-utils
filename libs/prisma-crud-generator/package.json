@@ -1,5 +1,18 @@
 {
   "name": "@prisma-utils/prisma-crud-generator",
+  "description": "Automagically create CreateDTOs, UpdateDTOs and a CRUD Service based on the Prisma Schema",
+  "main": "./src/generator.js",
+  "bin": {
+    "prisma-crud-generator": "./src/bin/prisma-crud-generator.js"
+  },
   "version": "0.0.1",
-  "type": "commonjs"
+  "type": "commonjs",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "Johannes Schobel",
+    "email": "johannes.schobel@googlemail.com",
+    "url": "https://github.com/johannesschobel"
+  }
 }
