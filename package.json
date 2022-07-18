@@ -60,6 +60,7 @@
     "glob": "8.0.3",
     "lodash": "^4.17.21",
     "pluralize": "8.0.0",
+    "prettier": "^2.5.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0",
     "ts-morph": "^15.1.0",

@@ -10,7 +10,9 @@
         "outputPath": "dist/libs/prisma-crud-generator",
         "main": "libs/prisma-crud-generator/src/index.ts",
         "tsConfig": "libs/prisma-crud-generator/tsconfig.lib.json",
-        "assets": ["libs/prisma-crud-generator/*.md"]
+        "assets": ["libs/prisma-crud-generator/*.md"],
+        "packageJson": "libs/prisma-crud-generator/package.json",
+        "buildableProjectDepsInPackageJsonType": "peerDependencies"
       }
     },
     "publish": {
@@ -38,6 +40,14 @@
       "options": {
         "jestConfig": "libs/prisma-crud-generator/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "release": {
+      "executor": "@ng-easy/builders:semantic-release",
+      "configurations": {
+        "local": {
+          "force": true
+        }
       }
     }
   },

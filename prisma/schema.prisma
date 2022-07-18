@@ -8,6 +8,23 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator nestDTOs {
+  provider = "node ./dist/libs/prisma-crud-generator"
+  output   = "./../.generated/#{MODEL}"
+
+  dryRun =  false
+  useStrict = true
+
+  DTOPath = "data/dtos"
+  DTOCreateParentClass = "CoreCreateDto"
+  DTOCreateParentClassPath = "@foo/core"
+
+  DTOUpdateParentClass = "CoreUpdateDto"
+  DTOUpdateParentClassPath = "@bar/core"
+
+  DTOSuffix = "Dto"
+}
+
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"
