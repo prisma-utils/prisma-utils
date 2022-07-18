@@ -40,3 +40,5 @@ Thumbs.db
 
 # Environment Files
 .env
+
+.generated
