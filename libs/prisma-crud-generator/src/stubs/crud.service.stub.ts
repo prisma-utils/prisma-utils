@@ -58,7 +58,7 @@ export class #{CrudServiceClassName} {
     }
   }
 
-  async countStudies(filter?: Prisma.#{Model}CountArgs): Promise<number | null> {
+  async count(filter?: Prisma.#{Model}CountArgs): Promise<number | null> {
     try {
       return await this.prismaService.#{model}.count(filter);
     } catch (e) {
