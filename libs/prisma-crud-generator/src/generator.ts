@@ -51,11 +51,12 @@ generatorHandler({
     for (const model of options.dmmf.datamodel.models) {
       console.log(`Processing Model ${model.name}`);
 
-      const outputBasePath =
-        options.generator.output?.value.replace(
-          /#{MODEL}/g,
-          model.name.toLowerCase(),
-        ) + '';
+      let folderPath = options.generator.output?.value + '';
+      folderPath = folderPath?.replace(/#{Model}/g, model.name);
+      folderPath = folderPath?.replace(/#{model}/g, model.name.toLowerCase());
+      folderPath = folderPath?.replace(/#{MODEL}/g, model.name.toUpperCase());
+
+      const outputBasePath = folderPath;
 
       // ----------------------------------------
       // generate CRUD Service

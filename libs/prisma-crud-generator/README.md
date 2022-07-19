@@ -19,7 +19,7 @@ Open your `prisma.schema` file to add a new `generator`.
 
 generator crud {
   provider = "prisma-crud-generator"
-  output = "./generated/#{MODEL}"
+  output = "./generated/#{model}"
 
   # dryRun = true / false
   # strict = true / false
@@ -30,12 +30,12 @@ generator crud {
 
 The main parameters for this generator as as follows:
 
-| Parameter Name | Type    | Default Value | Description                                                                                                         |
-| -------------- | ------- | ------------- | ------------------------------------------------------------------------------------------------------------------- |
-| provider       | string  | -             | The name of the generator - must be set to `prisma-crud-generator`                                                  |
-| output         | string  | -             | Path where all the files are generated to. You can use #{MODEL} to insert the name of the currently processed model |
-| dryRun         | boolean | false         | don't write any content but output everything to the console instead                                                |
-| strict         | boolean | false         | Whether the generated code should use `strict` mode (i.e., for variable initializers)                               |
+| Parameter Name | Type    | Default Value | Description                                                                                                                                                                                                                                                           |
+| -------------- | ------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| provider       | string  | -             | The name of the generator - must be set to `prisma-crud-generator`                                                                                                                                                                                                    |
+| output         | string  | -             | Path where all the files are generated to. You can use `#{model}` to insert the lowercase name of the currently processed model (i.e., `user`), `#{Model}` for the real model name (written as is, i.e., `User`) and `#{MODEL}` for the uppercase name (i.e., `USER`) |
+| dryRun         | boolean | false         | don't write any content but output everything to the console instead                                                                                                                                                                                                  |
+| strict         | boolean | false         | Whether the generated code should use `strict` mode (i.e., for variable initializers)                                                                                                                                                                                 |
 
 ### CRUD Services
 
