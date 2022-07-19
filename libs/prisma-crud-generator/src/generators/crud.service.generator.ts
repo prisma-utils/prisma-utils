@@ -28,11 +28,19 @@ export class CrudServiceGenerator {
       crudServiceContent = customStub.toString();
     }
 
-    crudServiceContent = crudServiceContent.replace(/#{NAME}/g, this.className);
+    // replace variables
+    crudServiceContent = crudServiceContent.replace(
+      /#{CrudServiceClassName}/g,
+      this.className,
+    );
 
     crudServiceContent = crudServiceContent.replace(
-      /#{MODEL}/g,
+      /#{Model}/g,
       this.model.name,
+    );
+    crudServiceContent = crudServiceContent.replace(
+      /#{MODEL}/g,
+      this.model.name.toUpperCase(),
     );
     crudServiceContent = crudServiceContent.replace(
       /#{model}/g,
