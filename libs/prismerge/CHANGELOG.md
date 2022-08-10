@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.6.2...@prisma-utils/prismerge@1.7.0) (2022-08-10)
+
+
+### :sparkles: Features
+
+* **prismerge:** allow excluding apps ([beb3411](https://github.com/prisma-utils/prisma-utils/commit/beb34111e79da8163513369705dd45adfbbc96d4))
+
 ## [1.6.2](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prismerge@1.6.1...@prisma-utils/prismerge@1.6.2) (2022-07-14)
 
 
