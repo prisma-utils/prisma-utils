@@ -83,6 +83,14 @@ Of course you can add additional `apps` (i.e., top level element of the `prismer
 }
 ```
 
+You can specify to exclude a specific app, via the `--excludeApps` (`-eA`) parameter. Running
+
+```bash
+npx prismerge --oA auth-service article-service
+```
+
+will exclude these specific apps from the generation process.
+
 ### Globs
 
 PrisMerge also allows to use `glob` patterns for `inputs`. Consider the following example:

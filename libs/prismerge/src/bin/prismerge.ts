@@ -28,6 +28,10 @@ const bootstrap = () => {
       './prismerge.json',
     )
     .option('-g, --generate', 'Generate an initial default file first.')
+    .option(
+      '-eA, --excludeApps <apps...>',
+      'Select the apps you want to exclude from the generation process.',
+    )
     .option('-nF, --no-format', 'Format the Prisma File after generation.')
     .parse(process.argv);
 
@@ -35,6 +39,7 @@ const bootstrap = () => {
 
   const basePath = path.join(process.cwd());
   const inputPath = path.join(basePath, options.input);
+  const excludeApps: string[] = options.excludeApps || [];
 
   // check, if we need to generate the prismerge file
   if (options.generate) {
@@ -62,6 +67,11 @@ const bootstrap = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Object.entries(prisMergeContent).forEach(([app, content]: [string, any]) => {
+    if (excludeApps.includes(app)) {
+      console.log(`Skipping app: ${app}`);
+      return;
+    }
+
     console.log(`Processing app: ${app}...`);
     const prismaSchemaInputFiles = content.inputs || [];
     const prismaSchemaFragmentFiles = content.fragments || {};
@@ -88,7 +98,9 @@ const bootstrap = () => {
       prismaContent = prismaContent.replace(regEx, content);
     });
 
-    writeFileSync(prismaSchemaOutputFile, prismaContent, { encoding: 'utf8' });
+    writeFileSync(prismaSchemaOutputFile, prismaContent, {
+      encoding: 'utf8',
+    });
 
     if (options.format) {
       console.log(`Formatting file ${content.output}`);
