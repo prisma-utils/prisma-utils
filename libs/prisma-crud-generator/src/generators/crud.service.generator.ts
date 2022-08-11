@@ -46,6 +46,10 @@ export class CrudServiceGenerator {
       /#{model}/g,
       this.model.name.toLowerCase(),
     );
+    crudServiceContent = crudServiceContent.replace(
+      /#{moDel}/g,
+      this.lowerCase(this.model.name),
+    );
 
     return crudServiceContent;
   }
@@ -58,5 +62,13 @@ export class CrudServiceGenerator {
     );
 
     await writeFileSafely(this.config, dtoFilePath, content);
+  }
+
+  /**
+   * Converts the first character of a word to lower case
+   * @param name
+   */
+  private lowerCase(name: string): string {
+    return name.substring(0, 1).toLowerCase() + name.substring(1)
   }
 }
