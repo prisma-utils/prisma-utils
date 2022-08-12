@@ -47,6 +47,18 @@ Additionally, the `prisma-crud-generator` also offers specific configuration par
 | CRUDServiceSuffix | string | "CrudService" | Suffix that is appended to the name of the model.               |
 | CRUDStubFile      | string | undefined     | (optional) path to a custom stub-file to read the template from |
 
+#### CRUD Service Stub File
+
+You can add your own CRUD Service Stub file that contains all custom code. You can use the following variables, that are automatically replaced during the generation process:
+
+| Variable Name             | Description                                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `#{CrudServiceClassName}` | The generated class name for the service (i.e., based on the parameter for the generator)              |
+| `#{Model}`                | The original model name (i.e., `User`)                                                                 |
+| `#{model}`                | The lowercase version of the model name (i.e., `user`)                                                 |
+| `#{MODEL}`                | The uppercase version of the model name (i.e., `USER`)                                                 |
+| `#{moDel}`                | The camelCased version of the model name (i.e., `userName`). Note that the first letter is lowercased! |
+
 ## Tipps
 
 Note that this package also works in combination with `PrisMerge` (Docs)[https://github.com/prisma-utils/prisma-utils/tree/main/libs/prismerge]
