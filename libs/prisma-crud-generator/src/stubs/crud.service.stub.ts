@@ -14,7 +14,7 @@ export class #{CrudServiceClassName} {
 
   async getAll(filter?: Prisma.#{Model}FindManyArgs): Promise<#{Model}[] | null> {
     try {
-      return await this.prismaService.#{model}.findMany(filter);
+      return await this.prismaService.#{moDel}.findMany(filter);
     } catch (e) {
       return null;
     }
@@ -22,7 +22,7 @@ export class #{CrudServiceClassName} {
 
   async getById(id: string): Promise<#{Model} | null> {
     try {
-      return await this.prismaService.#{model}.findUnique({ where: { id: id } });
+      return await this.prismaService.#{moDel}.findUnique({ where: { id: id } });
     } catch (e) {
       return null;
     }
@@ -30,7 +30,7 @@ export class #{CrudServiceClassName} {
 
   async create(data: Prisma.#{Model}CreateInput): Promise<#{Model} | null> {
     try {
-      return await this.prismaService.#{model}.create({ data: data });
+      return await this.prismaService.#{moDel}.create({ data: data });
     } catch (e) {
       return null;
     }
@@ -41,7 +41,7 @@ export class #{CrudServiceClassName} {
     data: Prisma.#{Model}UpdateInput,
   ): Promise<#{Model} | null> {
     try {
-      return await this.prismaService.#{model}.update({
+      return await this.prismaService.#{moDel}.update({
         where: { id: id },
         data: data,
       });
@@ -52,7 +52,7 @@ export class #{CrudServiceClassName} {
 
   async delete(id: string): Promise<#{Model} | null> {
     try {
-      return await this.prismaService.#{model}.delete({ where: { id: id } });
+      return await this.prismaService.#{moDel}.delete({ where: { id: id } });
     } catch (e) {
       return null;
     }
@@ -60,7 +60,7 @@ export class #{CrudServiceClassName} {
 
   async count(filter?: Prisma.#{Model}CountArgs): Promise<number | null> {
     try {
-      return await this.prismaService.#{model}.count(filter);
+      return await this.prismaService.#{moDel}.count(filter);
     } catch (e) {
       return null;
     }
