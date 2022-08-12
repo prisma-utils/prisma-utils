@@ -1,3 +1,15 @@
+## [1.0.3](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.0.2...@prisma-utils/prisma-crud-generator@1.0.3) (2022-08-12)
+
+
+### :bug: Bug Fixes
+
+* **prisma-crud-generator:** camelCase modelname ([ef5a12c](https://github.com/prisma-utils/prisma-utils/commit/ef5a12c289a62130fc3dd17c6ee70abeb6754b4c))
+
+
+### :memo: Documentation
+
+* **prisma-crud-generator:** add docs ([de67861](https://github.com/prisma-utils/prisma-utils/commit/de67861b5b3306a05152a8746c85ab0c8a6f7f1f))
+
 ## [1.0.2](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.0.1...@prisma-utils/prisma-crud-generator@1.0.2) (2022-07-19)
 
 
