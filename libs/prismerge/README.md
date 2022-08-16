@@ -117,7 +117,7 @@ See the [glob docs](https://github.com/isaacs/node-glob) for more ideas, how thi
 
 PrisMerge also allows for defining `Fragments`, that can be inserted into models. These Fragments can be used to define reoccurring field definitions, like the description for `id` fields.
 
-Consider the following example for a `fragent` file:
+Consider the following example for a `fragment` file:
 
 ```bash
   id String @id @default(uuid())
