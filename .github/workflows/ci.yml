@@ -37,6 +37,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Fetch latest base branch
+        run: git fetch origin main
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -118,13 +121,13 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Run Prisma Generate
-        run: npx prisma generate
-
       - name: NPM
         uses: ng-easy/npm-setup@v2
         with:
           nx-key: test
+
+      - name: Run Prisma Generate
+        run: npx prisma generate
 
       - name: Test
         uses: mansagroup/nrwl-nx-action@v2
