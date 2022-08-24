@@ -1,9 +1,11 @@
 import { generatorHandler, GeneratorOptions } from '@prisma/generator-helper';
 import { GENERATOR_NAME } from './constants';
 import { CrudServiceGenerator } from './generators/crud.service.generator';
-// import { DtoGenerator } from './generators/dto.generator';
 import { GeneratorInterface } from './interfaces/generator.interface';
 import { version } from './../package.json';
+import { InputGenerator } from './generators/input.generator';
+import { writeFileSafely } from './utils/writeFileSafely';
+import path = require('path');
 
 const defaultOptions: GeneratorInterface = {
   useStrict: 'false',
@@ -11,14 +13,16 @@ const defaultOptions: GeneratorInterface = {
 
   schemaPath: '',
 
-  // DTOPath: 'data/dtos',
-  // DTOCreatePrefix: 'Create',
-  // DTOCreateParentClass: undefined,
-  // DTOCreateParentClassPath: undefined,
+  GenerateInputs: 'true',
+  InputExportPath: 'data/inputs',
+  InputSuffix: 'Input',
+  InputValidatorPackage: 'class-validator',
 
-  // DTOUpdatePrefix: 'Update',
-  // DTOUpdateParentClass: undefined,
-  // DTOUpdateParentClassPath: undefined,
+  InputParentClass: undefined,
+  InputParentClassPath: undefined,
+
+  InputCreatePrefix: 'Create',
+  InputUpdatePrefix: 'Update',
 
   GenerateServices: 'true',
   CRUDServicePath: 'services',
@@ -61,23 +65,23 @@ generatorHandler({
       // generate CRUD Service
       if (config.GenerateServices === 'true') {
         console.log(` > Generating CRUD Service for Model ${model.name}`);
-      const crudServiceName = `${model.name}${config.CRUDServiceSuffix}`;
-      const crudServiceGenerator = new CrudServiceGenerator(
-        config,
-        model,
-        crudServiceName,
-      );
-      const crudServiceContent = await crudServiceGenerator.generateContent();
+        const crudServiceName = `${model.name}${config.CRUDServiceSuffix}`;
+        const crudServiceGenerator = new CrudServiceGenerator(
+          config,
+          model,
+          crudServiceName,
+        );
+        const crudServiceContent = await crudServiceGenerator.generateContent();
 
         await writeFileSafely(
           config,
           path.join(
-        outputBasePath,
+            outputBasePath,
             config.CRUDServicePath,
             `${model.name.toLowerCase()}.crud.service.ts`,
           ),
-        crudServiceContent,
-      );
+          crudServiceContent,
+        );
       } else {
         console.log(
           ` > Skipping Generation of CRUD Service for Model ${model.name}`,
@@ -85,41 +89,23 @@ generatorHandler({
       }
       // ----------------------------------------
 
-      /*
       // ----------------------------------------
-      // generate CREATE DTOs
-      const dtoCreateClassName = `${config.DTOCreatePrefix}${model.name}${config.DTOSuffix}`;
-      const dtoCreateGenerator = new DtoGenerator(
-        config,
-        model,
-        dtoCreateClassName,
-      );
-      const dtoCreateContent = await dtoCreateGenerator.generateContent(
-        DTO_TYPE.CREATE,
-      );
-      await dtoCreateGenerator.writeToFile(
-        DTO_TYPE.CREATE,
-        outputBasePath,
-        dtoCreateContent,
-      );
+      // generate INPUTS
+      if (config.GenerateInputs === 'true') {
+        const inputGenerator = new InputGenerator(config, model);
+        const inputContent = await inputGenerator.generateContent();
 
-      // generate Update DTOs
-      const dtoUpdateClassName = `${config.DTOUpdatePrefix}${model.name}${config.DTOSuffix}`;
-      const dtoUpdateGenerator = new DtoGenerator(
-        config,
-        model,
-        dtoUpdateClassName,
-      );
-      const dtoUpdateContent = await dtoUpdateGenerator.generateContent(
-        DTO_TYPE.UPDATE,
-      );
-      await dtoUpdateGenerator.writeToFile(
-        DTO_TYPE.UPDATE,
-        outputBasePath,
-        dtoUpdateContent,
-      );
+        await writeFileSafely(
+          config,
+          path.join(
+            outputBasePath,
+            config.InputExportPath,
+            `${model.name.toLowerCase()}.input.ts`,
+          ),
+          inputContent,
+        );
+      }
       // ----------------------------------------
-      */
     }
   },
 });

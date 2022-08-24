@@ -4,14 +4,14 @@ export interface GeneratorInterface {
 
   schemaPath: string;
 
-  // DTOPath: string;
-  // DTOCreatePrefix: string;
-  // DTOCreateParentClass?: string;
-  // DTOCreateParentClassPath?: string;
-
-  // DTOUpdatePrefix: string;
-  // DTOUpdateParentClass?: string;
-  // DTOUpdateParentClassPath?: string;
+  GenerateInputs: 'true' | 'false';
+  InputExportPath: string;
+  InputSuffix: string;
+  InputValidatorPackage: string;
+  InputParentClass?: string;
+  InputParentClassPath?: string;
+  InputCreatePrefix: string;
+  InputUpdatePrefix: string;
 
   GenerateServices: 'true' | 'false';
   CRUDServicePath: string;
