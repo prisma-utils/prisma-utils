@@ -68,8 +68,14 @@ generatorHandler({
         crudServiceName,
       );
       const crudServiceContent = await crudServiceGenerator.generateContent();
-      await crudServiceGenerator.writeToFile(
+
+        await writeFileSafely(
+          config,
+          path.join(
         outputBasePath,
+            config.CRUDServicePath,
+            `${model.name.toLowerCase()}.crud.service.ts`,
+          ),
         crudServiceContent,
       );
       } else {

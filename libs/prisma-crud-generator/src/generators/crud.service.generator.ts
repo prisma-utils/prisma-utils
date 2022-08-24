@@ -5,7 +5,6 @@ import {
   crudServiceStubWithExceptions,
 } from './../stubs/crud.service.stub';
 import * as path from 'path';
-import { writeFileSafely } from './../utils/writeFileSafely';
 import { promises as fs } from 'fs';
 
 export class CrudServiceGenerator {
@@ -59,16 +58,6 @@ export class CrudServiceGenerator {
     );
 
     return crudServiceContent;
-  }
-
-  public async writeToFile(outputBasePath: string, content: string) {
-    const dtoFilePath = path.join(
-      outputBasePath,
-      this.config.CRUDServicePath,
-      `${this.model.name.toLowerCase()}.crud.service.ts`,
-    );
-
-    await writeFileSafely(this.config, dtoFilePath, content);
   }
 
   private lowerCaseFirstChar(text: string) {
