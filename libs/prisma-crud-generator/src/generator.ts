@@ -20,9 +20,7 @@ const defaultOptions: GeneratorInterface = {
   // DTOUpdateParentClass: undefined,
   // DTOUpdateParentClassPath: undefined,
 
-  // DTOSuffix: 'Dto',
-  // DTOValidatorPackage: '@nestjs/class-validator',
-
+  GenerateServices: 'true',
   CRUDServicePath: 'services',
   CRUDServiceSuffix: 'CrudService',
   CRUDStubFile: undefined,
@@ -61,6 +59,8 @@ generatorHandler({
 
       // ----------------------------------------
       // generate CRUD Service
+      if (config.GenerateServices === 'true') {
+        console.log(` > Generating CRUD Service for Model ${model.name}`);
       const crudServiceName = `${model.name}${config.CRUDServiceSuffix}`;
       const crudServiceGenerator = new CrudServiceGenerator(
         config,
@@ -72,6 +72,11 @@ generatorHandler({
         outputBasePath,
         crudServiceContent,
       );
+      } else {
+        console.log(
+          ` > Skipping Generation of CRUD Service for Model ${model.name}`,
+        );
+      }
       // ----------------------------------------
 
       /*

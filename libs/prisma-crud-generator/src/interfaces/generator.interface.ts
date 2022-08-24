@@ -13,9 +13,7 @@ export interface GeneratorInterface {
   // DTOUpdateParentClass?: string;
   // DTOUpdateParentClassPath?: string;
 
-  // DTOSuffix: string;
-  // DTOValidatorPackage: string;
-
+  GenerateServices: 'true' | 'false';
   CRUDServicePath: string;
   CRUDServiceSuffix: string;
   CRUDStubFile?: string;
