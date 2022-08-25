@@ -141,19 +141,22 @@ export class InputGenerator {
       }
     }
 
-    const fieldDecorators =
-      PrismaHelper.getInstance().generateSwaggerDecoratorsFromDMMF(field);
+    let openApiDecoratorsContent = '';
+    if (this.config.GenerateInputSwagger === 'true') {
+      const openApiDecorators =
+        PrismaHelper.getInstance().generateSwaggerDecoratorsFromDMMF(field);
 
-    // append the new decorators
-    for (const fieldDecorator of fieldDecorators) {
-      this.addDecoratorToImport(fieldDecorator);
+      // append the new decorators
+      for (const fieldDecorator of openApiDecorators) {
+        this.addDecoratorToImport(fieldDecorator);
+      }
+
+      openApiDecoratorsContent = openApiDecorators
+        .map((decorator) => {
+          return decorator.generateContent();
+        })
+        .join('\n');
     }
-
-    const fieldDecoratorsContent = fieldDecorators
-      .map((decorator) => {
-        return decorator.generateContent();
-      })
-      .join('\n');
 
     // and now we add some custom decorators based on documentation
     const documentation = field.documentation;
@@ -178,7 +181,7 @@ export class InputGenerator {
 
     let fieldDecoratorsAndCustomDecoratorsContent = '';
     fieldDecoratorsAndCustomDecoratorsContent =
-      fieldDecoratorsContent + customDecoratorsContent;
+      openApiDecoratorsContent + customDecoratorsContent;
 
     content = content.replace(
       /#{Decorators}/g,
