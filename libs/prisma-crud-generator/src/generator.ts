@@ -14,6 +14,7 @@ const defaultOptions: GeneratorInterface = {
   schemaPath: '',
 
   GenerateInputs: 'true',
+  GenerateInputSwagger: 'true',
   InputExportPath: 'data/inputs',
   InputSuffix: 'Input',
   InputValidatorPackage: 'class-validator',

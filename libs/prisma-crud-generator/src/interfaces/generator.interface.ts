@@ -5,6 +5,7 @@ export interface GeneratorInterface {
   schemaPath: string;
 
   GenerateInputs: 'true' | 'false';
+  GenerateInputSwagger: 'true' | 'false';
   InputExportPath: string;
   InputSuffix: string;
   InputValidatorPackage: string;
