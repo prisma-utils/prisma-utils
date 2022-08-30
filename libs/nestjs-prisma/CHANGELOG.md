@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.8.1...@prisma-utils/nestjs-prisma@1.9.0) (2022-08-30)
+
+
+### :sparkles: Features
+
+* **nestjs-prisma:** pagination interface ([9d9b431](https://github.com/prisma-utils/prisma-utils/commit/9d9b431194607bc6e2587e41e2acb53f37b4e43d))
+
 ## [1.8.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.8.0...@prisma-utils/nestjs-prisma@1.8.1) (2022-07-13)
 
 
