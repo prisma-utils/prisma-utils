@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.0.3...@prisma-utils/prisma-crud-generator@1.1.0) (2022-08-31)
+
+
+### :sparkles: Features
+
+* **prisma-crud-generator:** update crud stub ([42dcbaf](https://github.com/prisma-utils/prisma-utils/commit/42dcbaf48abbbf1e2c98d438b186b331a0c64892))
+* **prisma-crud-generator:** wrap with exceptions ([9471f1b](https://github.com/prisma-utils/prisma-utils/commit/9471f1bfb94fb56d531570f46bdcb90f22339567))
+
 ## [1.0.3](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.0.2...@prisma-utils/prisma-crud-generator@1.0.3) (2022-08-12)
 
 
