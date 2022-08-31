@@ -133,7 +133,7 @@ export class InputGenerator {
     if (field.isRequired === false) {
       content = content.replace(/#{Operator}/g, '?');
     } else {
-      if (this.config.useStrict === 'true') {
+      if (this.config.strict === 'true') {
         content = content.replace(/#{Operator}/g, '!');
       } else {
         content = content.replace(/#{Operator}/g, '');

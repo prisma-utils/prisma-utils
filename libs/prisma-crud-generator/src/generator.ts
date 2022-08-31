@@ -8,7 +8,7 @@ import { writeFileSafely } from './utils/writeFileSafely';
 import path = require('path');
 
 const defaultOptions: GeneratorInterface = {
-  useStrict: 'false',
+  strict: 'false',
   dryRun: 'false',
 
   schemaPath: '',

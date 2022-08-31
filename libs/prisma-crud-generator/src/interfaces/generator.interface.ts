@@ -1,5 +1,5 @@
 export interface GeneratorInterface {
-  useStrict: 'true' | 'false';
+  strict: 'true' | 'false';
   dryRun: 'true' | 'false';
 
   schemaPath: string;

@@ -9,7 +9,7 @@ export const primitiveTypeMap: Record<any, string> = {
   decimal: 'number',
   float: 'number',
   int: 'number',
-  json: 'JSON',
+  json: 'object',
   string: 'string',
 };
 
