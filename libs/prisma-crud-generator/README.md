@@ -108,6 +108,9 @@ model User {
 
   /// ... more fields here
 
+  ///@Relation()
+  posts Post[]
+
   ///@Omit()
   createdAt DateTime @default(now())
   ///@Omit()
@@ -142,6 +145,11 @@ export class UserInput {
   @IsBoolean()
   isAdmin: boolean;
 
+  // ...
+
+  @ApiProperty()
+  posts: undefined;
+
   @ApiProperty()
   createdAt: Date;
 
@@ -161,6 +169,7 @@ export class CreateUserInput extends OmitType(UserInput, [
   'id',
   'createdAt',
   'updatedAt',
+  'posts',
 ] as const) {}
 
 export class UpdateUserInput extends PartialType(UserInput) {}
@@ -168,7 +177,7 @@ export class UpdateUserInput extends PartialType(UserInput) {}
 
 These classes extend the `OmitType` and `PartialType` known from `NestJS Mapped Types` (i.e., see [documentation here](https://docs.nestjs.com/openapi/mapped-types) and [here](https://docs.nestjs.com/techniques/validation#mapped-types)).
 
-Every field that is decorated with the `@Omit()` documentation, is added automatically to the `OmitType`. Hence, this field is not required / allowed / ... anymore when submitting data to your service. Likewise, the `PartialType` makes every field optional, so that you can only update the `username` with a `PATCH` request.
+Every field that is decorated with the `@Omit()` documentation, is added automatically to the `OmitType`. Hence, this field is not required / allowed / ... anymore when submitting data to your service. Likewise, the `PartialType` makes every field optional, so that you can only update the `username` with a `PATCH` request. Also, fields decorated with `@Relation()` and `@RelationId()` are automatically omitted.
 
 ## Tipps
 
