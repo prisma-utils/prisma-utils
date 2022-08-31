@@ -1,3 +1,23 @@
+# [1.2.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.1.0...@prisma-utils/prisma-crud-generator@1.2.0) (2022-08-31)
+
+
+### :bug: Bug Fixes
+
+* **prisma-crud-generator:** cleanup ([ed8b68b](https://github.com/prisma-utils/prisma-utils/commit/ed8b68b40549fadf898445f3c99d804e4eab131a))
+* **prisma-crud-generator:** relation decorator ([79d065c](https://github.com/prisma-utils/prisma-utils/commit/79d065cf12621a653cf6f35e24b1fdeec3f2e17b))
+
+
+### :memo: Documentation
+
+* **prisma-crud-generator:** documentation ([c0ec1f3](https://github.com/prisma-utils/prisma-utils/commit/c0ec1f3276df25ee5f43533772e8142a1e9589a3))
+
+
+### :sparkles: Features
+
+* **prisma-crud-generator:** flag ([5f7d1ed](https://github.com/prisma-utils/prisma-utils/commit/5f7d1edc8a0f14b784fff789c56b2b47c3b02fa5))
+* **prisma-crud-generator:** generate inputs ([2ae4923](https://github.com/prisma-utils/prisma-utils/commit/2ae49234df772b7e144059a2190de4849ab2aa79))
+* **prisma-crud-generator:** swagger ([ae3a4cc](https://github.com/prisma-utils/prisma-utils/commit/ae3a4ccec2d9ff2cc17175e3dff11ea9be147b75))
+
 # [1.1.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.0.3...@prisma-utils/prisma-crud-generator@1.1.0) (2022-08-31)
 
 
