@@ -26,6 +26,7 @@ const defaultOptions: GeneratorInterface = {
   CRUDServicePath: 'services',
   CRUDServiceSuffix: 'CrudService',
   CRUDStubFile: undefined,
+  CRUDAddExceptions: 'true',
 };
 
 generatorHandler({

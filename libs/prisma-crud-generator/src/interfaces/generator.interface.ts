@@ -19,4 +19,5 @@ export interface GeneratorInterface {
   CRUDServicePath: string;
   CRUDServiceSuffix: string;
   CRUDStubFile?: string;
+  CRUDAddExceptions?: 'true' | 'false';
 }

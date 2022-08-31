@@ -41,11 +41,12 @@ The main parameters for this generator as as follows:
 
 Additionally, the `prisma-crud-generator` also offers specific configuration parameters:
 
-| Parameter Name    | Type   | Default Value | Description                                                     |
-| ----------------- | ------ | ------------- | --------------------------------------------------------------- |
-| CRUDServicePath   | string | "services"    | Path that is appended to the `output` parameter                 |
-| CRUDServiceSuffix | string | "CrudService" | Suffix that is appended to the name of the model.               |
-| CRUDStubFile      | string | undefined     | (optional) path to a custom stub-file to read the template from |
+| Parameter Name    | Type    | Default Value | Description                                                                              |
+| ----------------- | ------- | ------------- | ---------------------------------------------------------------------------------------- |
+| CRUDServicePath   | string  | "services"    | Path that is appended to the `output` parameter                                          |
+| CRUDServiceSuffix | string  | "CrudService" | Suffix that is appended to the name of the model.                                        |
+| CRUDStubFile      | string  | undefined     | (optional) path to a custom stub-file to read the template from                          |
+| CRUDAddExceptions | boolean | true          | Whether prisma calls should be wrapped in an exception or not (by default it is wrapped) |
 
 #### CRUD Service Stub File
 

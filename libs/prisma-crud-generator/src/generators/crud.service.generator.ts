@@ -1,6 +1,9 @@
 import { GeneratorInterface } from './../interfaces/generator.interface';
 import { DMMF } from '@prisma/generator-helper';
-import { crudServiceStub } from './../stubs/crud.service.stub';
+import {
+  crudServiceStub,
+  crudServiceStubWithExceptions,
+} from './../stubs/crud.service.stub';
 import * as path from 'path';
 import { writeFileSafely } from './../utils/writeFileSafely';
 import { promises as fs } from 'fs';
@@ -15,7 +18,11 @@ export class CrudServiceGenerator {
   public async generateContent() {
     let crudServiceContent: string;
 
-    crudServiceContent = crudServiceStub;
+    if (this.config.CRUDAddExceptions === 'true') {
+      crudServiceContent = crudServiceStubWithExceptions;
+    } else {
+      crudServiceContent = crudServiceStub;
+    }
 
     if (this.config.CRUDStubFile) {
       const stubFullPath = path.join(
