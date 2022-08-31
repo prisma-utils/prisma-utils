@@ -6,7 +6,6 @@ import {
   inputBaseClassStub,
   inputCreateClassStub,
   inputFieldStub,
-  inputFieldStubWithDefaultValue,
   inputUpdateClassStub,
 } from '../stubs/input.stub';
 
@@ -111,36 +110,25 @@ export class InputGenerator {
   async generateFieldContent(field: DMMF.Field) {
     let content = inputFieldStub;
 
-    if (field.default) {
-      if (typeof field.default !== 'object') {
-        content = inputFieldStubWithDefaultValue;
-
-        let defaultValue = field.default;
-        if (field.type === 'String') {
-          defaultValue = `'${defaultValue}'`;
-        }
-
-        content = content.replace(/#{DefaultValue}/g, defaultValue + '');
-      }
-    }
-
     content = content.replace(/#{FieldName}/g, field.name);
     content = content.replace(
       /#{Type}/g,
       PrismaHelper.getInstance().getPrimitiveMapTypeFromDMMF(field),
     );
 
+    let isOptionalDecorator = '';
+
     if (field.isRequired === false) {
       content = content.replace(/#{Operator}/g, '?');
+      const isOptionalDecoratorHelper = new DecoratorHelper(
+        'IsOptional',
+        this.config.InputValidatorPackage,
+      );
+      this.addDecoratorToImport(isOptionalDecoratorHelper);
+      isOptionalDecorator = isOptionalDecoratorHelper.generateContent();
     } else {
       if (this.config.strict === 'true') {
-        if (field.default && typeof field.default !== 'object') {
-          // if there is a default value, we cannot use !
-          content = content.replace(/#{Operator}/g, '');
-        } else {
-          // no default value, so we add !
-          content = content.replace(/#{Operator}/g, '!');
-        }
+        content = content.replace(/#{Operator}/g, '!');
       } else {
         content = content.replace(/#{Operator}/g, '');
       }
@@ -199,7 +187,7 @@ export class InputGenerator {
 
     let fieldDecoratorsAndCustomDecoratorsContent = '';
     fieldDecoratorsAndCustomDecoratorsContent =
-      openApiDecoratorsContent + customDecoratorsContent;
+      openApiDecoratorsContent + isOptionalDecorator + customDecoratorsContent;
 
     content = content.replace(
       /#{Decorators}/g,
