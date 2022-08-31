@@ -112,7 +112,6 @@ export class InputGenerator {
     let content = inputFieldStub;
 
     if (field.default) {
-      console.log(typeof field.default);
       if (typeof field.default !== 'object') {
         content = inputFieldStubWithDefaultValue;
 
