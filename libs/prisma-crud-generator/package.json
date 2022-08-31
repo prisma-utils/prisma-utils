@@ -5,7 +5,7 @@
   "bin": {
     "prisma-crud-generator": "./src/bin/prisma-crud-generator.js"
   },
-  "version": "1.2.3",
+  "version": "1.2.4",
   "type": "commonjs",
   "publishConfig": {
     "access": "public"
