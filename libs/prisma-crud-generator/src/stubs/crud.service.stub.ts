@@ -4,65 +4,79 @@ THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 -----------------------------------------------------
 */
 
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { Prisma, #{Model} } from '@prisma/client';
-import { PrismaService } from '@prisma-utils/nestjs-prisma';
+import {
+  PaginationInterface,
+  PrismaService,
+} from '@prisma-utils/nestjs-prisma';
 
 @Injectable()
 export class #{CrudServiceClassName} {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async getAll(filter?: Prisma.#{Model}FindManyArgs): Promise<#{Model}[] | null> {
-    try {
-      return await this.prismaService.#{moDel}.findMany(filter);
-    } catch (e) {
-      return null;
-    }
+  getPrisma() {
+    return this.prismaService;
+  }
+
+  async getAll(
+    filter?: Prisma.#{Model}FindManyArgs,
+  ): Promise<PaginationInterface<#{Model}>> {
+    const [items, count] = await this.prismaService.$transaction([
+      this.prismaService.#{moDel}.findMany(filter),
+      this.prismaService.#{moDel}.count({ where: filter?.where }),
+    ]);
+
+    return {
+      items: items,
+      meta: {
+        totalItems: count,
+        items: items.length,
+        totalPages: Math.ceil(count / filter?.take),
+        page: filter?.skip / filter?.take + 1,
+      },
+    };
   }
 
   async getById(id: string): Promise<#{Model} | null> {
-    try {
-      return await this.prismaService.#{moDel}.findUnique({ where: { id: id } });
-    } catch (e) {
-      return null;
-    }
+    const result = await this.prismaService.#{moDel}.findUnique({
+      where: { id: id }
+    });
+    return result;
   }
 
-  async create(data: Prisma.#{Model}CreateInput): Promise<#{Model} | null> {
+  async create(data: Prisma.#{Model}CreateInput): Promise<#{Model}> {
     try {
-      return await this.prismaService.#{moDel}.create({ data: data });
+      const result = await this.prismaService.#{moDel}.create({ data: data });
+      return result;
     } catch (e) {
-      return null;
+      throw new InternalServerErrorException(\`Could not create #{Model} Model\`);
     }
   }
 
   async update(
     id: string,
     data: Prisma.#{Model}UpdateInput,
-  ): Promise<#{Model} | null> {
+  ): Promise<#{Model}> {
     try {
       return await this.prismaService.#{moDel}.update({
         where: { id: id },
         data: data,
       });
     } catch (e) {
-      return null;
+      throw new InternalServerErrorException(
+        \`Could not update #{Model} Model \${id}\`,
+      );
     }
   }
 
-  async delete(id: string): Promise<#{Model} | null> {
+  async delete(id: string): Promise<#{Model}> {
     try {
       return await this.prismaService.#{moDel}.delete({ where: { id: id } });
     } catch (e) {
-      return null;
-    }
-  }
-
-  async count(filter?: Prisma.#{Model}CountArgs): Promise<number | null> {
-    try {
-      return await this.prismaService.#{moDel}.count(filter);
-    } catch (e) {
-      return null;
+      throw new InternalServerErrorException(
+        \`Could not delete #{Model} Model \${id}\`,
+      );
     }
   }
 }
