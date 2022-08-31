@@ -80,7 +80,6 @@ export class InputGenerator {
     content = content.replace(/#{NameBaseInput}/g, baseClassName);
     content = content.replace(/#{NameCreateInput}/g, className);
 
-    // TODO
     const omitFieldString = this.omitFields
       .map((field) => `'${field}'`)
       .join(',');
@@ -165,10 +164,23 @@ export class InputGenerator {
       // we need to process this properly
       const customDecorators = this.parseDocumentation(field);
 
-      // this field has to be omitted
       for (const customDecorator of customDecorators) {
-        // check, if this element is "Omit", so we skip everything
+        // check, if the current field has an @Omit() decorator, so we skip everything
         if (customDecorator.name === 'Omit') {
+          this.omitFields.push(field.name);
+          continue;
+        }
+
+        // if the element has an @Relation() decorator
+        if (customDecorator.name === 'Relation') {
+          // for now, we do nothing
+          this.omitFields.push(field.name);
+          continue;
+        }
+
+        // if the element has an @RelationId() decorator
+        if (customDecorator.name === 'RelationId') {
+          // for now, we do nothing
           this.omitFields.push(field.name);
           continue;
         }
