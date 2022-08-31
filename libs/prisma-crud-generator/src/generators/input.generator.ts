@@ -134,7 +134,13 @@ export class InputGenerator {
       content = content.replace(/#{Operator}/g, '?');
     } else {
       if (this.config.strict === 'true') {
-        content = content.replace(/#{Operator}/g, '!');
+        if (field.default) {
+          // if there is a default value, we cannot use !
+          content = content.replace(/#{Operator}/g, '');
+        } else {
+          // no default value, so we add !
+          content = content.replace(/#{Operator}/g, '!');
+        }
       } else {
         content = content.replace(/#{Operator}/g, '');
       }
