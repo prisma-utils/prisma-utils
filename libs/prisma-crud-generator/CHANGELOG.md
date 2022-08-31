@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.2.1...@prisma-utils/prisma-crud-generator@1.2.2) (2022-08-31)
+
+
+### :bug: Bug Fixes
+
+* **prisma-crud-generator:** exclamation default ([78305ac](https://github.com/prisma-utils/prisma-utils/commit/78305ace71524f7b5733ff198be4710fba3bbdd9))
+
 ## [1.2.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.2.0...@prisma-utils/prisma-crud-generator@1.2.1) (2022-08-31)
 
 
