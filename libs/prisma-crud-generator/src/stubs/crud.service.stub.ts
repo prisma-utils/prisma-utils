@@ -4,7 +4,11 @@ THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 -----------------------------------------------------
 */
 
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import {
+  Injectable,
+  InternalServerErrorException,
+  NotFoundException,
+} from '@nestjs/common';
 import { Prisma, #{Model} } from '@prisma/client';
 import {
   PaginationInterface,
@@ -38,11 +42,15 @@ export class #{CrudServiceClassName} {
     };
   }
 
-  async getById(id: string): Promise<#{Model} | null> {
-    const result = await this.prismaService.#{moDel}.findUnique({
-      where: { id: id }
-    });
-    return result;
+  async getById(id: string): Promise<#{Model}> {
+    try {
+      const result = await this.prismaService.#{moDel}.findUniqueOrThrow({
+        where: { id: id }
+      });
+      return result;
+    } catch(e) {
+      throw new NotFoundException(\`#{Model} Resource \${id} was not found.\`);
+    }
   }
 
   async create(data: Prisma.#{Model}CreateInput): Promise<#{Model}> {
@@ -50,7 +58,7 @@ export class #{CrudServiceClassName} {
       const result = await this.prismaService.#{moDel}.create({ data: data });
       return result;
     } catch (e) {
-      throw new InternalServerErrorException(\`Could not create #{Model} Model\`);
+      throw new InternalServerErrorException(\`Could not create #{Model} Resource\`);
     }
   }
 
@@ -65,7 +73,7 @@ export class #{CrudServiceClassName} {
       });
     } catch (e) {
       throw new InternalServerErrorException(
-        \`Could not update #{Model} Model \${id}\`,
+        \`Could not update #{Model} Resource \${id}\`,
       );
     }
   }
@@ -122,8 +130,8 @@ export class #{CrudServiceClassName} {
     };
   }
 
-  async getById(id: string): Promise<#{Model} | null> {
-    const result = await this.prismaService.#{moDel}.findUnique({
+  async getById(id: string): Promise<#{Model}> {
+    const result = await this.prismaService.#{moDel}.findUniqueOrThrow({
       where: { id: id }
     });
     return result;
