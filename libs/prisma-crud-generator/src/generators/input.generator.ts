@@ -32,6 +32,14 @@ export class InputGenerator {
     return `${this.model.name}${this.config.InputSuffix}`;
   }
 
+  private getCreateInputClassName() {
+    return `${this.config.InputCreatePrefix}${this.model.name}${this.config.InputSuffix}`;
+  }
+
+  private getUpdateInputClassName() {
+    return `${this.config.InputUpdatePrefix}${this.model.name}${this.config.InputSuffix}`;
+  }
+
   private async generateBaseInput() {
     let content = inputBaseClassStub;
 
@@ -73,10 +81,10 @@ export class InputGenerator {
   private generateCreateInput() {
     let content = inputCreateClassStub;
 
-    const baseClassName = this.getBaseInputClassName();
-    const className = `${this.config.InputCreatePrefix}${this.model.name}${this.config.InputSuffix}`;
+    const parentClassName = this.getBaseInputClassName();
+    const className = this.getCreateInputClassName();
 
-    content = content.replace(/#{NameBaseInput}/g, baseClassName);
+    content = content.replace(/#{NameParentInput}/g, parentClassName);
     content = content.replace(/#{NameCreateInput}/g, className);
 
     const omitFieldString = this.omitFields
@@ -94,10 +102,10 @@ export class InputGenerator {
   private generateUpdateInput() {
     let content = inputUpdateClassStub;
 
-    const baseClassName = this.getBaseInputClassName();
-    const className = `${this.config.InputUpdatePrefix}${this.model.name}${this.config.InputSuffix}`;
+    const parentClassName = this.getCreateInputClassName();
+    const className = this.getUpdateInputClassName();
 
-    content = content.replace(/#{NameBaseInput}/g, baseClassName);
+    content = content.replace(/#{NameParentInput}/g, parentClassName);
     content = content.replace(/#{NameUpdateInput}/g, className);
 
     this.addDecoratorToImport(

@@ -20,9 +20,9 @@ export const inputFieldStubWithDefaultValue = `
 `;
 
 export const inputCreateClassStub = `
-export class #{NameCreateInput} extends OmitType(#{NameBaseInput}, [#{OmitFields}] as const) {}
+export class #{NameCreateInput} extends OmitType(#{NameParentInput}, [#{OmitFields}] as const) {}
 `;
 
 export const inputUpdateClassStub = `
-export class #{NameUpdateInput} extends PartialType(#{NameBaseInput}) {}
+export class #{NameUpdateInput} extends PartialType(#{NameParentInput}) {}
 `;
