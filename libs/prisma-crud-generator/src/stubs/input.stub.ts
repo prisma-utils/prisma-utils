@@ -1,4 +1,9 @@
-export const inputBaseClassStub = `
+export const inputBaseClassStub = `/*
+-----------------------------------------------------
+THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+-----------------------------------------------------
+*/
+
 #{Imports}
 
 export class #{NameBaseInput} #{ParentClass} {
