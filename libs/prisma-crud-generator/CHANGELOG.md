@@ -1,3 +1,10 @@
+## [1.2.8](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.2.7...@prisma-utils/prisma-crud-generator@1.2.8) (2022-09-12)
+
+
+### :bug: Bug Fixes
+
+* **prisma-crud-generator:** pagination in stubs ([c3bf215](https://github.com/prisma-utils/prisma-utils/commit/c3bf2159f8d8600a0c471aef4255eec3aaedd19e))
+
 ## [1.2.7](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.2.6...@prisma-utils/prisma-crud-generator@1.2.7) (2022-09-02)
 
 
