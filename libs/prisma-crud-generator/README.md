@@ -179,7 +179,7 @@ These classes extend the `OmitType` and `PartialType` known from `NestJS Mapped 
 
 Every field that is decorated with the `@Omit()` documentation, is added automatically to the `OmitType`. Hence, this field is not required / allowed / ... anymore when submitting data to your service. Likewise, the `PartialType` makes every field optional, so that you can only update the `username` with a `PATCH` request. Also, fields decorated with `@Relation()` and `@RelationId()` are automatically omitted.
 
-## Tipps
+## Tips
 
 - You can `disable` the generation of the crud services or the input types by setting the respective `GenerateServices` or `GenerateInputs` to `false`.
 - Note that this package also works in combination with `PrisMerge` (Docs)[https://github.com/prisma-utils/prisma-utils/tree/main/libs/prismerge]
