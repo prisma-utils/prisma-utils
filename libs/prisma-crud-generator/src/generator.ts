@@ -6,6 +6,7 @@ import { version } from './../package.json';
 import { InputGenerator } from './generators/input.generator';
 import { writeFileSafely } from './utils/writeFileSafely';
 import path = require('path');
+import { lowerCaseFirstChar } from './utils/utils';
 
 const defaultOptions: GeneratorInterface = {
   strict: 'false',
@@ -59,6 +60,10 @@ generatorHandler({
       folderPath = folderPath?.replace(/#{Model}/g, model.name);
       folderPath = folderPath?.replace(/#{model}/g, model.name.toLowerCase());
       folderPath = folderPath?.replace(/#{MODEL}/g, model.name.toUpperCase());
+      folderPath = folderPath?.replace(
+        /#{moDel}/g,
+        lowerCaseFirstChar(model.name),
+      );
 
       const outputBasePath = folderPath;
 
