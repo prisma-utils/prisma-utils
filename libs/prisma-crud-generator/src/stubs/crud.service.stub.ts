@@ -26,23 +26,28 @@ export class #{CrudServiceClassName} {
   async getAll(
     filter?: Prisma.#{Model}FindManyArgs,
   ): Promise<PaginationInterface<#{Model}>> {
-    const [items, count] = await this.prismaService.$transaction([
-      this.prismaService.#{moDel}.findMany(filter),
-      this.prismaService.#{moDel}.count({ where: filter?.where }),
-    ]);
+    try {
+      const [items, count] = await this.prismaService.$transaction([
+        this.prismaService.#{moDel}.findMany(filter),
+        this.prismaService.#{moDel}.count({ where: filter?.where }),
+      ]);
 
-    const take = filter?.take ? filter?.take : count;
-    const skip = filter?.skip ? filter?.skip : 0;
+      const take = filter?.take ? filter?.take : count;
+      const skip = filter?.skip ? filter?.skip : 0;
 
-    return {
-      items: items,
-      meta: {
-        totalItems: count,
-        items: items.length,
-        totalPages: Math.ceil(count / take),
-        page: skip / take + 1,
-      },
-    };
+      return {
+        items: items,
+        meta: {
+          totalItems: count,
+          items: items.length,
+          totalPages: Math.ceil(count / take),
+          page: skip / take + 1,
+        },
+      };
+    }
+    catch(e) {
+      throw new InternalServerErrorException(\`Could not get #{Model} Resources.\`);
+    }
   }
 
   async getById(id: string): Promise<#{Model}> {
@@ -61,7 +66,7 @@ export class #{CrudServiceClassName} {
       const result = await this.prismaService.#{moDel}.create({ data: data });
       return result;
     } catch (e) {
-      throw new InternalServerErrorException(\`Could not create #{Model} Resource\`);
+      throw new InternalServerErrorException(\`Could not create #{Model} Resource.\`);
     }
   }
 
@@ -76,7 +81,7 @@ export class #{CrudServiceClassName} {
       });
     } catch (e) {
       throw new InternalServerErrorException(
-        \`Could not update #{Model} Resource \${id}\`,
+        \`Could not update #{Model} Resource \${id}.\`,
       );
     }
   }
@@ -86,7 +91,7 @@ export class #{CrudServiceClassName} {
       return await this.prismaService.#{moDel}.delete({ where: { id: id } });
     } catch (e) {
       throw new InternalServerErrorException(
-        \`Could not delete #{Model} Model \${id}\`,
+        \`Could not delete #{Model} Model \${id}.\`,
       );
     }
   }
