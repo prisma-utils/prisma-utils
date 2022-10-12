@@ -10,6 +10,12 @@ Install the package via
 npm i -D @prisma-utils/prisma-crud-generator
 ```
 
+If you would like to use automatically wrap prisma calls with `Exceptions`, you need to manually install `neverthrow` as well.
+
+```bash
+npm i neverthrow
+```
+
 ## Usage
 
 Open your `prisma.schema` file to add a new `generator`.
@@ -52,6 +58,10 @@ Additionally, the `prisma-crud-generator` also offers specific configuration par
 | CRUDServiceSuffix | string  | "CrudService" | Suffix that is appended to the name of the model.                                         |
 | CRUDStubFile      | string  | undefined     | (optional) path to a custom stub-file to read the template from.                          |
 | CRUDAddExceptions | boolean | true          | Whether prisma calls should be wrapped in an exception or not (by default it is wrapped)  |
+
+### Exceptions
+
+Using the `CRUDAddExceptions` feature (i.e., set to `true`) will wrap the `result` (i.e., data returned by prisma or an error) in a `Result` object from `neverthrow`. For a basic usage, see the [wiki of `neverthrow`](https://github.com/supermacro/neverthrow/wiki/Basic-Usage-Examples).
 
 ### CRUD Service Stub File
 
