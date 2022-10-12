@@ -14,6 +14,7 @@ import {
   PaginationInterface,
   PrismaService,
 } from '@prisma-utils/nestjs-prisma';
+import { err, ok, Result } from 'neverthrow';
 
 @Injectable()
 export class #{CrudServiceClassName} {
@@ -25,7 +26,7 @@ export class #{CrudServiceClassName} {
 
   async getAll(
     filter?: Prisma.#{Model}FindManyArgs,
-  ): Promise<PaginationInterface<#{Model}>> {
+  ): Promise<Result<PaginationInterface<#{Model}>, Error>> {
     try {
       const [items, count] = await this.prismaService.$transaction([
         this.prismaService.#{moDel}.findMany(filter),
@@ -35,7 +36,7 @@ export class #{CrudServiceClassName} {
       const take = filter?.take ? filter?.take : count;
       const skip = filter?.skip ? filter?.skip : 0;
 
-      return {
+      return ok({
         items: items,
         meta: {
           totalItems: count,
@@ -43,56 +44,58 @@ export class #{CrudServiceClassName} {
           totalPages: Math.ceil(count / take),
           page: skip / take + 1,
         },
-      };
+      });
     }
     catch(e) {
-      throw new InternalServerErrorException(\`Could not get #{Model} Resources.\`);
+      return err(new InternalServerErrorException(\`Could not get #{Model} Resources.\`));
     }
   }
 
-  async getById(id: string): Promise<#{Model}> {
+  async getById(id: string): Promise<Result<#{Model}, Error>> {
     try {
       const result = await this.prismaService.#{moDel}.findUniqueOrThrow({
         where: { id: id }
       });
-      return result;
+      return ok(result);
     } catch(e) {
-      throw new NotFoundException(\`#{Model} Resource \${id} was not found.\`);
+      return err(new NotFoundException(\`#{Model} Resource \${id} was not found.\`));
     }
   }
 
-  async create(data: Prisma.#{Model}CreateInput): Promise<#{Model}> {
+  async create(data: Prisma.#{Model}CreateInput): Promise<Result<#{Model}, Error>> {
     try {
       const result = await this.prismaService.#{moDel}.create({ data: data });
-      return result;
+      return ok(result);
     } catch (e) {
-      throw new InternalServerErrorException(\`Could not create #{Model} Resource.\`);
+      return err(new InternalServerErrorException(\`Could not create #{Model} Resource.\`));
     }
   }
 
   async update(
     id: string,
     data: Prisma.#{Model}UpdateInput,
-  ): Promise<#{Model}> {
+  ): Promise<Result<#{Model}, Error>> {
     try {
-      return await this.prismaService.#{moDel}.update({
+      const result = await this.prismaService.#{moDel}.update({
         where: { id: id },
         data: data,
       });
+      return ok(result);
     } catch (e) {
-      throw new InternalServerErrorException(
+      return err(new InternalServerErrorException(
         \`Could not update #{Model} Resource \${id}.\`,
-      );
+      ));
     }
   }
 
-  async delete(id: string): Promise<#{Model}> {
+  async delete(id: string): Promise<Result<#{Model}, Error>> {
     try {
-      return await this.prismaService.#{moDel}.delete({ where: { id: id } });
+      const result = await this.prismaService.#{moDel}.delete({ where: { id: id } });
+      return ok(result);
     } catch (e) {
-      throw new InternalServerErrorException(
-        \`Could not delete #{Model} Model \${id}.\`,
-      );
+      return err(new InternalServerErrorException(
+        \`Could not delete #{Model} Resource \${id}.\`,
+      ));
     }
   }
 }
