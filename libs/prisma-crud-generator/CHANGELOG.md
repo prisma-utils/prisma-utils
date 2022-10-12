@@ -1,3 +1,10 @@
+## [1.2.9](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.2.8...@prisma-utils/prisma-crud-generator@1.2.9) (2022-10-12)
+
+
+### :bug: Bug Fixes
+
+* **prisma-crud-generator:** moDel style in folders ([af089b4](https://github.com/prisma-utils/prisma-utils/commit/af089b4da1dd4a7dd053088e01f659bc57772e91))
+
 ## [1.2.8](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.2.7...@prisma-utils/prisma-crud-generator@1.2.8) (2022-09-12)
 
 
