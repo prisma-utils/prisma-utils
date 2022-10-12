@@ -6,6 +6,7 @@ import {
 } from './../stubs/crud.service.stub';
 import * as path from 'path';
 import { promises as fs } from 'fs';
+import { lowerCaseFirstChar } from '../utils/utils';
 
 export class CrudServiceGenerator {
   constructor(
@@ -54,13 +55,9 @@ export class CrudServiceGenerator {
     );
     crudServiceContent = crudServiceContent.replace(
       /#{moDel}/g,
-      this.lowerCaseFirstChar(this.model.name),
+      lowerCaseFirstChar(this.model.name),
     );
 
     return crudServiceContent;
-  }
-
-  private lowerCaseFirstChar(text: string) {
-    return text.charAt(0).toLowerCase() + text.slice(1);
   }
 }
