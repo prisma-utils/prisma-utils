@@ -119,10 +119,14 @@ export class InputGenerator {
     let content = inputFieldStub;
 
     content = content.replace(/#{FieldName}/g, field.name);
-    content = content.replace(
-      /#{Type}/g,
-      PrismaHelper.getInstance().getPrimitiveMapTypeFromDMMF(field),
+
+    const typeMap = PrismaHelper.getInstance().getMapTypeFromDMMF(
+      field,
+      this.config.InputValidatorPackage,
     );
+    const tsType = typeMap.tsType;
+    const validatorDecorators = typeMap.validators;
+    content = content.replace(/#{Type}/g, tsType);
 
     let isOptionalDecorator = '';
 
@@ -157,6 +161,14 @@ export class InputGenerator {
           return decorator.generateContent();
         })
         .join('\n');
+    }
+
+    // add auto validators from type!
+    let validatorDecoratorsContent = '';
+    for (const validatorDecorator of validatorDecorators) {
+      this.addDecoratorToImport(validatorDecorator);
+      validatorDecoratorsContent =
+        validatorDecoratorsContent + validatorDecorator.generateContent();
     }
 
     // and now we add some custom decorators based on documentation
@@ -195,7 +207,10 @@ export class InputGenerator {
 
     let fieldDecoratorsAndCustomDecoratorsContent = '';
     fieldDecoratorsAndCustomDecoratorsContent =
-      openApiDecoratorsContent + isOptionalDecorator + customDecoratorsContent;
+      openApiDecoratorsContent +
+      isOptionalDecorator +
+      validatorDecoratorsContent +
+      customDecoratorsContent;
 
     content = content.replace(
       /#{Decorators}/g,
