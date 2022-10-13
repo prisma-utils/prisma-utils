@@ -1,20 +1,54 @@
 import { DMMF } from '@prisma/generator-helper';
 import { DecoratorHelper } from './decorator.helper';
 
-export const primitiveTypeMap: Record<any, string> = {
-  bigInt: 'BigInt',
-  boolean: 'boolean',
-  bytes: 'Buffer',
-  datetime: 'Date',
-  decimal: 'number',
-  float: 'number',
-  int: 'number',
-  json: 'object',
-  string: 'string',
-};
+interface TypeMap {
+  tsType: string;
+  validators: DecoratorHelper[];
+}
 
 export class PrismaHelper {
   static instance: PrismaHelper;
+
+  private primitiveTypeMap(validatorClass: string): Record<any, TypeMap> {
+    return {
+      bigint: {
+        tsType: 'BigInt',
+        validators: [new DecoratorHelper('IsNumber', validatorClass)],
+      },
+      boolean: {
+        tsType: 'boolean',
+        validators: [new DecoratorHelper('IsBoolean', validatorClass)],
+      },
+      bytes: {
+        tsType: 'Buffer',
+        validators: [],
+      },
+      datetime: {
+        tsType: 'Date',
+        validators: [new DecoratorHelper('IsDate', validatorClass)],
+      },
+      decimal: {
+        tsType: 'number',
+        validators: [new DecoratorHelper('IsNumber', validatorClass)],
+      },
+      float: {
+        tsType: 'number',
+        validators: [new DecoratorHelper('IsNumber', validatorClass)],
+      },
+      int: {
+        tsType: 'number',
+        validators: [new DecoratorHelper('IsInt', validatorClass)],
+      },
+      json: {
+        tsType: 'object',
+        validators: [new DecoratorHelper('IsObject', validatorClass)],
+      },
+      string: {
+        tsType: 'string',
+        validators: [new DecoratorHelper('IsString', validatorClass)],
+      },
+    };
+  }
 
   static getInstance() {
     if (PrismaHelper.instance) {
@@ -24,11 +58,21 @@ export class PrismaHelper {
     return PrismaHelper.instance;
   }
 
-  public getPrimitiveMapTypeFromDMMF(field: DMMF.Field): string {
-    if (typeof field.type !== 'string') {
-      return 'unknown';
+  public getMapTypeFromDMMF(
+    field: DMMF.Field,
+    validatorClass = 'class-validator',
+  ): TypeMap {
+    const mapTypes = this.primitiveTypeMap(validatorClass);
+    const mapType = mapTypes[field.type.toLowerCase()];
+
+    if (!mapType) {
+      return {
+        tsType: 'unknown',
+        validators: [new DecoratorHelper('IsDefined', validatorClass)],
+      };
     }
-    return primitiveTypeMap[field.type.toLowerCase()];
+
+    return mapType;
   }
 
   public generateSwaggerDecoratorsFromDMMF(
