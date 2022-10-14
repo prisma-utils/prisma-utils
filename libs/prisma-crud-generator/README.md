@@ -95,6 +95,8 @@ One goal of this package is to have a "single source of truth". This also implie
 
 Prisma itself allows to add some kind of _documentation_ to a model and fields. This feature is used to add custom decorators that are then used in the generation process as well.
 
+Note that the package automatically adds proper validation decorators based on the datatype (i.e., the `username String` will automatically have the `@IsString()` decorator).
+
 Consider this simplified model from a `schema.prisma` file.
 
 ```prisma
@@ -110,10 +112,8 @@ model User {
   username String
 
   ///@IsOptional()
-  ///@IsString()
   alias String?
 
-  ///@IsBoolean()
   isAdmin Boolean @default(false)
 
   /// ... more fields here
@@ -135,14 +135,17 @@ You see a lot of comments (marked with `///`) that contains `decorators` to vali
 ```ts
 export class UserInput {
   @ApiProperty()
+  @IsInt()
   id: number;
 
   @ApiProperty()
+  @IsString()
   @IsEmail()
   @MinLength(5)
   email: string;
 
   @ApiProperty()
+  @IsString()
   @MinLength(5)
   username: string;
 
@@ -158,12 +161,14 @@ export class UserInput {
   // ...
 
   @ApiProperty()
-  posts: undefined;
+  posts: unknown;
 
   @ApiProperty()
+  @IsDate()
   createdAt: Date;
 
   @ApiProperty()
+  @IsDate()
   updatedAt: Date;
 }
 ```
