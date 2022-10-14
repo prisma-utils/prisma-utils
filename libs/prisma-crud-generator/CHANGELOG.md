@@ -1,3 +1,21 @@
+# [1.3.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.2.9...@prisma-utils/prisma-crud-generator@1.3.0) (2022-10-14)
+
+
+### :bug: Bug Fixes
+
+* **prisma-crud-generator:** add missing try ([ca83b20](https://github.com/prisma-utils/prisma-utils/commit/ca83b20d2141405c57329be6e6469bec1202406a))
+
+
+### :memo: Documentation
+
+* **prisma-crud-generator:** update docs ([8cce906](https://github.com/prisma-utils/prisma-utils/commit/8cce9067326f519e326426738a61950a1db0846c))
+
+
+### :sparkles: Features
+
+* **prisma-crud-generator:** add neverthrow ([c055722](https://github.com/prisma-utils/prisma-utils/commit/c0557226e7a0d20a42430578d0a4669f60c58455))
+* **prisma-crud-generator:** add validation decos ([bce9de2](https://github.com/prisma-utils/prisma-utils/commit/bce9de2b9e34b5210851a695dc8bbb106f175d3b))
+
 ## [1.2.9](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.2.8...@prisma-utils/prisma-crud-generator@1.2.9) (2022-10-12)
 
 
