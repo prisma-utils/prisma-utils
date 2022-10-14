@@ -25,7 +25,7 @@ export class PrismaHelper {
       },
       datetime: {
         tsType: 'Date',
-        validators: [new DecoratorHelper('IsDate', validatorClass)],
+        validators: [new DecoratorHelper('IsISO8601', validatorClass)],
       },
       decimal: {
         tsType: 'number',
