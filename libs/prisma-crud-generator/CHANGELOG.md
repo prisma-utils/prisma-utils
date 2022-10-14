@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.3.0...@prisma-utils/prisma-crud-generator@1.3.1) (2022-10-14)
+
+
+### :bug: Bug Fixes
+
+* **prisma-crud-generator:** fix date validator ([80052c3](https://github.com/prisma-utils/prisma-utils/commit/80052c36d3300cf2a9cceb475afe4e40ae5cd5e7))
+
 # [1.3.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.2.9...@prisma-utils/prisma-crud-generator@1.3.0) (2022-10-14)
 
 
