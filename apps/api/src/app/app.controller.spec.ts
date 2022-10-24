@@ -24,6 +24,7 @@ describe('AppController', () => {
           skip: 0,
           sort: [],
           take: 10,
+          filter: {},
         }),
       ).toEqual({ message: 'Welcome to api!' });
     });
