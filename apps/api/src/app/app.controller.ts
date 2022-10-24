@@ -11,7 +11,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getData(@RequestParser() foo: ParsedQueryModel) {
+  getData(@RequestParser() params: ParsedQueryModel) {
+    console.log(params);
     return this.appService.getData();
   }
 
