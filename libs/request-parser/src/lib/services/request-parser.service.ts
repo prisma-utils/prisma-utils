@@ -11,6 +11,9 @@ const defaultRequestQueryOptions: RequestQueryOptions = {
   limitDefaultValue: 20,
   maxLimit: 100,
 
+  filterParamName: 'filter',
+  filterDefaultValue: {},
+
   pageParamName: 'page',
   pageDefaultValue: 1,
 
@@ -40,19 +43,21 @@ export class RequestParserService {
     const page = this.parsePage();
     const limit = this.parseLimit();
     const sort = this.parseSort();
+    const filter = this.parseFilter();
 
     return {
       page: page,
       skip: this.calculateSkip(page, limit),
       take: limit,
       sort: sort,
+      filter: filter,
     };
   }
 
   private parsePage(): number {
-    const pageParam = this.query[this.options.pageParamName];
+    const pageRequestData = this.query[this.options.pageParamName];
 
-    const page = parseInt(pageParam) || this.options.pageDefaultValue;
+    const page = parseInt(pageRequestData) || this.options.pageDefaultValue;
 
     if (page < 1) {
       return this.options.pageDefaultValue;
@@ -62,9 +67,9 @@ export class RequestParserService {
   }
 
   private parseLimit(): number {
-    const limitParam = this.query[this.options.limitParamName];
+    const limitRequestData = this.query[this.options.limitParamName];
 
-    let limit = parseInt(limitParam) || this.options.limitDefaultValue;
+    let limit = parseInt(limitRequestData) || this.options.limitDefaultValue;
 
     if (limit < 1) {
       limit = this.options.limitDefaultValue;
@@ -81,13 +86,28 @@ export class RequestParserService {
     return (page - 1) * limit;
   }
 
+  private parseFilter(): object {
+    let filter: object = {};
+
+    const filterRequestData =
+      this.query[this.options.filterParamName] ||
+      this.options.filterDefaultValue;
+
+    try {
+      filter = JSON.parse(filterRequestData);
+    } catch (e) {
+      return filter;
+    }
+    return filter;
+  }
+
   private parseSort(): ParsedQuerySortModel[] {
     const sort: ParsedQuerySortModel[] = [];
 
-    const sortParam =
+    const sortRequestData =
       this.query[this.options.orderParamName] || this.options.orderDefaultValue;
 
-    const sortQuery = (sortParam as string).trim();
+    const sortQuery = (sortRequestData as string).trim();
 
     if (sortQuery !== undefined) {
       if (sortQuery.length > 0) {

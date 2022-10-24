@@ -8,4 +8,7 @@ export interface RequestQueryOptions {
 
   orderParamName: string;
   orderDefaultValue: string;
+
+  filterParamName: string;
+  filterDefaultValue: object;
 }
