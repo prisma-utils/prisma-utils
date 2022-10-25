@@ -1,6 +1,6 @@
 {
   "name": "@prisma-utils/nestjs-request-parser",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "commonjs",
   "publishConfig": {
     "access": "public"

@@ -1,3 +1,20 @@
+# [1.2.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-request-parser@1.1.0...@prisma-utils/nestjs-request-parser@1.2.0) (2022-10-25)
+
+
+### :bug: Bug Fixes
+
+* **request-parser:** minor ([5643cd0](https://github.com/prisma-utils/prisma-utils/commit/5643cd06af40450dac37cee013908e135ab9e5d3))
+
+
+### :memo: Documentation
+
+* **request-parser:** update readme ([46c8f93](https://github.com/prisma-utils/prisma-utils/commit/46c8f93aac3cff8a1eb8d4fbabbb11bf6a43ec09))
+
+
+### :sparkles: Features
+
+* **request-parser:** add filter param ([71e3dc0](https://github.com/prisma-utils/prisma-utils/commit/71e3dc03f06ae0d019f2bf8c68aa3219b4138f12))
+
 # [1.1.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-request-parser@1.0.1...@prisma-utils/nestjs-request-parser@1.1.0) (2022-07-14)
 
 
