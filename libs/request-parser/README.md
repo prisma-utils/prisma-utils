@@ -22,18 +22,25 @@ export class UserController {
 Then call the route as follows:
 
 ```bash
-example.com/api/users?sort=-id,name&limit=20&page=5
+example.com/api/users?sort=-id,name&limit=20&page=5&filter={"email": {"endsWith": "googlemail.com"}}
 ```
 
-will return 20 entries from the 5th page (i.e., entry 81 - 100). Entries are ordered by id (descending) and name (ascending).
+will return users with an email address that ends with `googlemail.com`. The route will return 20 entries from the 5th page (i.e., entry 81 - 100). Entries are ordered by id (descending) and name (ascending).
 
 ### Query Parameter Schema
 
-| name  | description                                                                                                                                | default |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
-| sort  | `order by` attribute. Comma separated list of attributes. `-` in front of a attribute (i.e., `-id`) means order by attribute `descending`. | `id`    |
-| limit | `limit` the result to a specific number of entries. Provides the possibility to set a maximum value as well                                | 20      |
-| page  | describe the page that should be retrieved (use in combination with `limit`)                                                               | 1       |
+| name     | description                                                                                                                                | default |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| `sort`   | `order by` attribute. Comma separated list of attributes. `-` in front of a attribute (i.e., `-id`) means order by attribute `descending`. | `id`    |
+| `limit`  | `limit` the result to a specific number of entries. Provides the possibility to set a maximum value as well                                | 20      |
+| `page`   | describe the page that should be retrieved (use in combination with `limit`)                                                               | 1       |
+| `filter` | describe an additional filter/where clause that may be appended to the `findX` call.                                                       | `{}`    |
+
+#### Filter
+
+The `filter` parameter should be passed as an object. Please note that this library does not validate / properly parse the passed object. Basically, you are free to use whatever style / format you would like. It would, however, be a good idea to use a similar idea as Prisma does (see the [official documentation](https://www.prisma.io/docs/concepts/components/prisma-client/filtering-and-sorting#filtering)).
+
+The `filter` parameter value must be `JSON.parse`able, otherwise the default value (`{}`) is used.
 
 ### Default Configuration
 
@@ -47,7 +54,10 @@ will return 20 entries from the 5th page (i.e., entry 81 - 100). Entries are ord
   "pageDefaultValue": 1,
 
   "orderParamName": "sort",
-  "orderDefaultValue": "id"
+  "orderDefaultValue": "id",
+
+  "filterParamName": "filter",
+  "filterDefaultValue": {}
 }
 ```
 
