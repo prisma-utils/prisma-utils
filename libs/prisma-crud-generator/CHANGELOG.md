@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.3.3...@prisma-utils/prisma-crud-generator@1.3.4) (2023-08-16)
+
+
+### :bug: Bug Fixes
+
+* **prisma-crud-generator:** and again ([1fbe719](https://github.com/prisma-utils/prisma-utils/commit/1fbe7193a87edd356c3a59c17057e40d4635fb94))
+
 ## [1.3.3](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-crud-generator@1.3.2...@prisma-utils/prisma-crud-generator@1.3.3) (2023-08-16)
 
 
