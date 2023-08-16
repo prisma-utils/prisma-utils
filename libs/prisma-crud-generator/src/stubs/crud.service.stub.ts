@@ -10,10 +10,8 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { Prisma, #{Model} } from '@prisma/client';
-import {
-  PaginationInterface,
-  PrismaService,
-} from '@prisma-utils/nestjs-prisma';
+import { PaginationModel } from '@prisma-utils/prisma-crud-generator';
+import { PrismaService } from 'nestjs-prisma';
 import { err, ok, Result } from 'neverthrow';
 
 @Injectable()
@@ -26,7 +24,7 @@ export class #{CrudServiceClassName} {
 
   async getAll(
     filter?: Prisma.#{Model}FindManyArgs,
-  ): Promise<Result<PaginationInterface<#{Model}>, Error>> {
+  ): Promise<Result<PaginationModel<#{Model}>, Error>> {
     try {
       const [items, count] = await this.prismaService.$transaction([
         this.prismaService.#{moDel}.findMany(filter),
@@ -109,10 +107,8 @@ THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 
 import { Injectable } from '@nestjs/common';
 import { Prisma, #{Model} } from '@prisma/client';
-import {
-  PaginationInterface,
-  PrismaService,
-} from '@prisma-utils/nestjs-prisma';
+import { PaginationModel } from '@prisma-utils/prisma-crud-generator';
+import { PrismaService } from 'nestjs-prisma';
 
 @Injectable()
 export class #{CrudServiceClassName} {
@@ -124,7 +120,7 @@ export class #{CrudServiceClassName} {
 
   async getAll(
     filter?: Prisma.#{Model}FindManyArgs,
-  ): Promise<PaginationInterface<#{Model}>> {
+  ): Promise<PaginationModel<#{Model}>> {
     const [items, count] = await this.prismaService.$transaction([
       this.prismaService.#{moDel}.findMany(filter),
       this.prismaService.#{moDel}.count({ where: filter?.where }),
