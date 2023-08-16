@@ -1,4 +1,4 @@
-export interface PaginationInterface<T> {
+export interface PaginationModel<T> {
   items: T[];
   meta: {
     totalItems: number;
