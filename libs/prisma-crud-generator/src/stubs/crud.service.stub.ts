@@ -10,7 +10,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { Prisma, #{Model} } from '@prisma/client';
-import { PaginationModel } from '@prisma-utils/prisma-crud-generator';
+import { PaginationModel } from '@prisma-utils/nestjs-prisma';
 import { PrismaService } from 'nestjs-prisma';
 import { err, ok, Result } from 'neverthrow';
 
@@ -107,7 +107,7 @@ THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 
 import { Injectable } from '@nestjs/common';
 import { Prisma, #{Model} } from '@prisma/client';
-import { PaginationModel } from '@prisma-utils/prisma-crud-generator';
+import { PaginationModel } from '@prisma-utils/nestjs-prisma';
 import { PrismaService } from 'nestjs-prisma';
 
 @Injectable()
