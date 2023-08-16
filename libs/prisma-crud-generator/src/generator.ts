@@ -8,6 +8,8 @@ import { writeFileSafely } from './utils/writeFileSafely';
 import path = require('path');
 import { lowerCaseFirstChar } from './utils/utils';
 
+export * from './models/pagination.model';
+
 const defaultOptions: GeneratorInterface = {
   strict: 'false',
   dryRun: 'false',
