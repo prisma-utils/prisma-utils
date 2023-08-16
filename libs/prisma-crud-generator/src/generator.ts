@@ -7,8 +7,9 @@ import { InputGenerator } from './generators/input.generator';
 import { writeFileSafely } from './utils/writeFileSafely';
 import path = require('path');
 import { lowerCaseFirstChar } from './utils/utils';
+import { PaginationModel } from './models/pagination.model';
 
-export * from './models/pagination.model';
+export { PaginationModel };
 
 const defaultOptions: GeneratorInterface = {
   strict: 'false',
