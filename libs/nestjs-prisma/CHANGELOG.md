@@ -1,3 +1,11 @@
+# [1.10.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.9.0...@prisma-utils/nestjs-prisma@1.10.0) (2023-08-16)
+
+
+### :sparkles: Features
+
+* **nestjs-prisma:** bump major version ([22aa417](https://github.com/prisma-utils/prisma-utils/commit/22aa417006331f5879447e7b86802b868246bcee))
+* **nestjs-prisma:** only interfaces ([4268f45](https://github.com/prisma-utils/prisma-utils/commit/4268f45cd04ced7a13b5a030d306d0c9583221be))
+
 # [1.9.0](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/nestjs-prisma@1.8.1...@prisma-utils/nestjs-prisma@1.9.0) (2022-08-30)
 
 
