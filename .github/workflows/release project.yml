@@ -10,6 +10,7 @@ on:
           - nestjs-prisma
           - request-parser
           - prisma-crud-generator
+          - prisma-repo
 
 jobs:
   npm:

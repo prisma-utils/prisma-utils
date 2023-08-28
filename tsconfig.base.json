@@ -22,6 +22,7 @@
       "@prisma-utils/prisma-crud-generator": [
         "libs/prisma-crud-generator/src/index.ts"
       ],
+      "@prisma-utils/prisma-repo": ["libs/prisma-repo/src/index.ts"],
       "@prisma-utils/prismerge": ["libs/prismerge/src/index.ts"]
     }
   },

@@ -1,0 +1,17 @@
+{
+  "name": "@prisma-utils/prisma-repo",
+  "description": "Automagically create CRUD repositories for your Models based on the Prisma Schema",
+  "version": "0.0.1",
+  "bin": {
+    "prisma-crud-generator": "./src/bin/prisma-crud-generator.js"
+  },
+  "type": "commonjs",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "Johannes Schobel",
+    "email": "johannes.schobel@googlemail.com",
+    "url": "https://github.com/johannesschobel"
+  }
+}
