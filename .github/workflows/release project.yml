@@ -33,7 +33,7 @@ jobs:
           node-version: 16.x
 
       - name: Setup NPM
-        uses: ng-easy/npm-setup@v2
+        uses: ng-easy/npm-setup@v3
 
       - name: Run Prisma Generate
         run: npx prisma generate
