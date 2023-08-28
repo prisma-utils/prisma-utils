@@ -5,7 +5,7 @@ import { version } from './../package.json';
 import { writeFileSafely } from './utils/writeFileSafely';
 import { lowerCaseFirstChar } from './utils/utils';
 import { GENERATOR_NAME } from './constants';
-import path = require('path');
+import * as path from 'path';
 
 const defaultOptions: GeneratorInterface = {
   strict: 'false',
