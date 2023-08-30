@@ -1,4 +1,6 @@
-export const repositoryStubWithExceptions = `/*
+export const repositoryStubWithExceptions = `/* eslint-disable */
+
+/*
 -----------------------------------------------------
 THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 -----------------------------------------------------
@@ -108,7 +110,9 @@ export class #{RepositoryClassName} {
 }
 `;
 
-export const repositoryStub = `/*
+export const repositoryStub = `/* eslint-disable */
+
+/*
 -----------------------------------------------------
 THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 -----------------------------------------------------
