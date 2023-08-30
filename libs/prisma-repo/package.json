@@ -1,7 +1,7 @@
 {
   "name": "@prisma-utils/prisma-repo",
   "description": "Automagically create CRUD repositories for your Models based on the Prisma Schema",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "bin": {
     "prisma-repo-generator": "./src/bin/prisma-repo-generator.js"
   },

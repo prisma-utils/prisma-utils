@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-repo@1.0.2...@prisma-utils/prisma-repo@1.0.3) (2023-08-30)
+
+
+### :bug: Bug Fixes
+
+* disable eslint for generated file ([3fa0eda](https://github.com/prisma-utils/prisma-utils/commit/3fa0edad335403a5890aec702a9783193371f4e5))
+
 ## [1.0.2](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-repo@1.0.1...@prisma-utils/prisma-repo@1.0.2) (2023-08-30)
 
 
