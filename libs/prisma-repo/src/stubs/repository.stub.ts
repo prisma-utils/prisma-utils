@@ -4,12 +4,6 @@ THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 -----------------------------------------------------
 */
 
-/*
------------------------------------------------------
-THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
------------------------------------------------------
-*/
-
 import {
   Injectable,
   InternalServerErrorException,
