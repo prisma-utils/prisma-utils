@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-repo@1.0.0...@prisma-utils/prisma-repo@1.0.1) (2023-08-30)
+
+
+### :bug: Bug Fixes
+
+* rename ([af9abf1](https://github.com/prisma-utils/prisma-utils/commit/af9abf13a388ee58889733a04c5aed2ba55d3705))
+
 # 1.0.0 (2023-08-28)
 
 
