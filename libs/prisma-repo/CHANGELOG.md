@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-repo@1.0.1...@prisma-utils/prisma-repo@1.0.2) (2023-08-30)
+
+
+### :bug: Bug Fixes
+
+* remove double header ([00a5722](https://github.com/prisma-utils/prisma-utils/commit/00a572262a54b551286ae971b100ba9c2d612688))
+
 ## [1.0.1](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-repo@1.0.0...@prisma-utils/prisma-repo@1.0.1) (2023-08-30)
 
 
