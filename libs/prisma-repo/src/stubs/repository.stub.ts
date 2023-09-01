@@ -260,7 +260,7 @@ export class #{RepositoryClassName} {
   }
 
   async update(
-    where: Prisma.#{Model}WhereUniqueInput
+    where: Prisma.#{Model}WhereUniqueInput,
     data: Prisma.#{Model}UpdateInput,
   ): Promise<#{Model}> {
     return await this.prismaService.#{moDel}.update({
