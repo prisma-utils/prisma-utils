@@ -22,7 +22,7 @@ export class #{RepositoryClassName} {
 
   async findMany(
     filter?: Prisma.#{Model}FindManyArgs,
-  ): Promise<Result<PaginationModel<#{Model}>, Error>> {
+  ): Promise<PaginationModel<#{Model}>> {
     try {
       const [items, count] = await this.prismaService.$transaction([
         this.prismaService.#{moDel}.findMany(filter),
@@ -48,7 +48,7 @@ export class #{RepositoryClassName} {
 
   async findUnique(
     where: Prisma.#{Model}WhereUniqueInput,
-  ): Promise<Result<#{Model}, Error>> {
+  ): Promise<#{Model}> {
     try {
       const result = await this.prismaService.#{moDel}.findUniqueOrThrow({
         where: where,
@@ -59,7 +59,7 @@ export class #{RepositoryClassName} {
     }
   }
 
-  async create(data: Prisma.#{Model}CreateInput): Promise<Result<#{Model}, Error>> {
+  async create(data: Prisma.#{Model}CreateInput): Promise<#{Model}> {
     try {
       const result = await this.prismaService.#{moDel}.create({ data: data });
       return result;
@@ -71,7 +71,7 @@ export class #{RepositoryClassName} {
   async update(
     where: Prisma.#{Model}WhereUniqueInput,
     data: Prisma.#{Model}UpdateInput,
-  ): Promise<Result<#{Model}, Error>> {
+  ): Promise<#{Model}> {
     try {
       const result = await this.prismaService.#{moDel}.update({
         where: where,
@@ -85,7 +85,7 @@ export class #{RepositoryClassName} {
 
   async delete(
     where: Prisma.#{Model}WhereUniqueInput,
-  ): Promise<Result<#{Model}, Error>> {
+  ): Promise<#{Model}> {
     try {
       const result = await this.prismaService.#{moDel}.delete({
         where: where,
