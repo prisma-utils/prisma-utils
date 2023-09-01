@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-repo@1.0.4...@prisma-utils/prisma-repo@1.0.5) (2023-09-01)
+
+
+### :bug: Bug Fixes
+
+* missing colon ([4995394](https://github.com/prisma-utils/prisma-utils/commit/4995394267f17bb7012b9ffcc325446cc6ac5f08))
+
 ## [1.0.4](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-repo@1.0.3...@prisma-utils/prisma-repo@1.0.4) (2023-09-01)
 
 
