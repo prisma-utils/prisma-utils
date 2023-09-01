@@ -9,4 +9,6 @@ export interface GeneratorInterface {
   RepositorySuffix: string;
   RepositoryStub?: string;
   RepositoryExceptions?: 'true' | 'false';
+
+  disableESLint: 'true' | 'false'; // TODO
 }

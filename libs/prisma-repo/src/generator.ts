@@ -18,6 +18,8 @@ const defaultOptions: GeneratorInterface = {
   RepositorySuffix: 'Repository',
   RepositoryStub: undefined,
   RepositoryExceptions: 'true',
+
+  disableESLint: 'true',
 };
 
 generatorHandler({
