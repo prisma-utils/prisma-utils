@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-repo@1.0.3...@prisma-utils/prisma-repo@1.0.4) (2023-09-01)
+
+
+### :bug: Bug Fixes
+
+* minor issues ([1111c7c](https://github.com/prisma-utils/prisma-utils/commit/1111c7c9b51aff86bdba4e46d5a086fab457d3e6))
+
 ## [1.0.3](https://github.com/prisma-utils/prisma-utils/compare/@prisma-utils/prisma-repo@1.0.2...@prisma-utils/prisma-repo@1.0.3) (2023-08-30)
 
 
