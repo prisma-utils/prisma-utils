@@ -59,24 +59,18 @@ export class #{RepositoryClassName} {
     }
   }
 
-  async create(data: Prisma.#{Model}CreateInput): Promise<#{Model}> {
+  async create(data: Prisma.#{Model}CreateArgs): Promise<#{Model}> {
     try {
-      const result = await this.prismaService.#{moDel}.create({ data: data });
+      const result = await this.prismaService.#{moDel}.create(data);
       return result;
     } catch (e) {
       throw new InternalServerErrorException(\`Could not create #{Model} Resource.\`);
     }
   }
 
-  async update(
-    where: Prisma.#{Model}WhereUniqueInput,
-    data: Prisma.#{Model}UpdateInput,
-  ): Promise<#{Model}> {
+  async update(data: Prisma.#{Model}UpdateArgs): Promise<#{Model}> {
     try {
-      const result = await this.prismaService.#{moDel}.update({
-        where: where,
-        data: data,
-      });
+      const result = await this.prismaService.#{moDel}.update(data);
       return result;
     } catch (e) {
       throw new InternalServerErrorException(\`Could not update #{Model} Resource.\`);
@@ -162,9 +156,9 @@ export class #{RepositoryClassName} {
     }
   }
 
-  async create(data: Prisma.#{Model}CreateInput): Promise<Result<#{Model}, Error>> {
+  async create(data: Prisma.#{Model}CreateArgs): Promise<Result<#{Model}, Error>> {
     try {
-      const result = await this.prismaService.#{moDel}.create({ data: data });
+      const result = await this.prismaService.#{moDel}.create(data);
       return ok(result);
     } catch (e) {
       return err(
@@ -173,15 +167,9 @@ export class #{RepositoryClassName} {
     }
   }
 
-  async update(
-    where: Prisma.#{Model}WhereUniqueInput,
-    data: Prisma.#{Model}UpdateInput,
-  ): Promise<Result<#{Model}, Error>> {
+  async update(data: Prisma.#{Model}UpdateArgs): Promise<Result<#{Model}, Error>> {
     try {
-      const result = await this.prismaService.#{moDel}.update({
-        where: where,
-        data: data,
-      });
+      const result = await this.prismaService.#{moDel}.update(data);
       return ok(result);
     } catch (e) {
       return err(
@@ -254,19 +242,13 @@ export class #{RepositoryClassName} {
     return result;
   }
 
-  async create(data: Prisma.#{Model}CreateInput): Promise<#{Model}> {
-    const result = await this.prismaService.#{moDel}.create({ data: data });
+  async create(data: Prisma.#{Model}CreateArgs): Promise<#{Model}> {
+    const result = await this.prismaService.#{moDel}.create(data);
     return result;
   }
 
-  async update(
-    where: Prisma.#{Model}WhereUniqueInput,
-    data: Prisma.#{Model}UpdateInput,
-  ): Promise<#{Model}> {
-    return await this.prismaService.#{moDel}.update({
-      where: where,
-      data: data,
-    });
+  async update(data: Prisma.#{Model}UpdateArgs): Promise<#{Model}> {
+    return await this.prismaService.#{moDel}.update(data);
   }
 
   async delete(where: Prisma.#{Model}WhereUniqueInput): Promise<#{Model}> {
